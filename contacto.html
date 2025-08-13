@@ -11,14 +11,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body style="background: linear-gradient(0deg, #BD2B2B, #8B0000);">
+<body style="background: linear-gradient(0deg, #FFFFFF);">
 
     <!-- Navbar -->
-    <nav class="bg-[#142E85] border-gray-200">
+    <nav class="bg-[##FFFFFF] border-gray-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="img/LogoNetoraOnly.png" class="h-10" alt="Netora Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">NETORA</span>
+                <img src="img/LogoNetoraOnly.png" class="h-12" alt="Netora Logo" />
+                <span class="self-center text-3xl font-bold text-[#BD2B2B]">NETORA</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -32,49 +32,56 @@
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#142E85] md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#FFFFFF] md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                     <li><a href="index.html"
-                            class="block py-2 px-3 text-white hover:text-red-700 md:hover:bg-transparent md:p-0">Inicio</a>
+                            class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Inicio</a>
                     </li>
                     <li><a href="#"
-                            class="block py-2 px-3 text-white hover:text-red-700 md:hover:bg-transparent md:p-0">Acerca
-                            de</a></li>
-                    <li><a href="#"
-                            class="block py-2 px-3 text-white hover:text-red-700 md:hover:bg-transparent md:p-0">Servicios</a>
+                            class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Acerca
+                            de</a>
                     </li>
                     <li><a href="#"
-                            class="block py-2 px-3 text-white hover:text-red-700 md:hover:bg-transparent md:p-0">Precios</a>
+                            class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Servicios</a>
+                    </li>
+                    <li><a href="#"
+                            class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Precios</a>
                     </li>
                     <li><a href="contacto.html"
-                            class="block py-2 px-3 text-white hover:text-red-700 md:hover:bg-transparent md:p-0">Contacto</a>
+                            class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Contacto</a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
     <!-- Sección Contacto -->
     <section class="bg-transparent min-h-[calc(100vh-64px)]">
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#FFFFFF] glow">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-[#BD2B2B] glow">
                 Contáctanos
             </h2>
 
             <style>
                 .glow {
-                    text-shadow: 0 0 10px #fff, 0 0 1px #fff, 0 0 1px #fff;
+                    text-shadow: 0 0 10px #ffffff, 0 0 1px #fff, 0 0 1px #fff;
                 }
             </style>
 
-            <p class="mb-8 lg:mb-16 font-light text-center text-[#D6D6D6] sm:text-xl">
+            <p class="mb-8 lg:mb-16 font-light text-center text-[#303030] sm:text-xl">
                 En Netora Management, apoyamos a tu empresa en la transformación digital.
                 Desde ciberseguridad, conectividad y productividad hasta soluciones como Claro Media, Claro Cloud y
                 Microsoft 365.
                 Si tienes alguna duda, problema técnico o quieres enviarnos tus comentarios, déjanos un mensaje y te
                 responderemos lo antes posible.
             </p>
+            <style>
+                .glow-form {
+                    box-shadow: 0 0 15px #580000, 0 0 2px #580000, 0 0 2px #580000;
+                }
+            </style>
+            <form action="#" class="space-y-8 bg-gradient-to-b from-[#BD2B2B] to-[#8B0000] p-6 rounded-lg glow-form">
 
-            <form action="#" class="space-y-8">
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-[#D6D6D6]">Tu correo</label>
                     <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required
@@ -93,15 +100,15 @@
                 <style>
                     @keyframes glowAnimation {
                         0% {
-                            box-shadow: 0 0 5px #fd6161, 0 0 10px #ff6767, 0 0 15px #f76464;
+                            box-shadow: 0 0 5px #ff3939, 0 0 10px #ff3939, 0 0 15px #ff3939;
                         }
 
                         50% {
-                            box-shadow: 0 0 15px #FF4D4D, 0 0 25px #FF4D4D, 0 0 35px #FF4D4D;
+                            box-shadow: 0 0 15px #ff3939, 0 0 25px #ff3939, 0 0 35px #ff3939;
                         }
 
                         100% {
-                            box-shadow: 0 0 5px #FF4D4D, 0 0 10px #FF4D4D, 0 0 15px #FF4D4D;
+                            box-shadow: 0 0 5px #ff3939, 0 0 10px #ff3939, 0 0 15px #ff3939;
                         }
                     }
 
@@ -110,8 +117,9 @@
                     }
                 </style>
 
+
                 <button type="submit"
-                    class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg hover:bg-red-900 bg-[#CC0404] sm:w-fit  transition glow-btn">
+                    class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg hover:bg-[#BD2B2B] bg-[#B80000] sm:w-fit  transition glow-btn">
                     Enviar mensaje
                 </button>
 
@@ -125,7 +133,7 @@
 </body>
 
 
-<footer class="bg-white dark:bg-gray-900">
+<footer class="bg-[#BD2B2B] border-gray-200">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
@@ -136,7 +144,7 @@
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Síguenos</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
                             <a href="https://www.linkedin.com/company/netora-management" target="_blank"
@@ -158,13 +166,19 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr class="my-6 border-[#FFFFFF] sm:mx-auto lg:my-8" />
+
+
+
+
+
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/"
                     class="hover:underline">Netora™</a>. Todos los derechos reservados.
             </span>
             <div class="flex mt-4 sm:justify-center sm:mt-0">
-                <a href="https://www.facebook.com/profile.php?id=61572427350703" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                <a href="https://www.facebook.com/profile.php?id=61572427350703" target="_blank"
+                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 8 19">
                         <path fill-rule="evenodd"
@@ -173,7 +187,8 @@
                     </svg>
                     <span class="sr-only">Facebook page</span>
                 </a>
-                <a href="https://www.instagram.com/netora_management/" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                <a href="https://www.instagram.com/netora_management/" target="_blank"
+                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                     <span class="[&>svg]:h-5 [&>svg]:w-5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
                             <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
@@ -182,7 +197,8 @@
                         </svg>
                     </span>
                 </a>
-                <a href="https://www.linkedin.com/company/netora-management" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                <a href="https://www.linkedin.com/company/netora-management" target="_blank"
+                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                     <span class="[&>svg]:h-5 [&>svg]:w-5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
                             <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
@@ -191,7 +207,8 @@
                         </svg>
                     </span>
                 </a>
-                <a href="https://www.tiktok.com/@netora.management" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                <a href="https://www.tiktok.com/@netora.management" target="_blank"
+                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                     <!-- TikTok -->
                     <span class="[&>svg]:h-5 [&>svg]:w-5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
@@ -205,6 +222,5 @@
         </div>
     </div>
 </footer>
-
 
 </html>
