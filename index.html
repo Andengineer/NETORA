@@ -15,14 +15,14 @@
 <body class="bg--100">
 
   <!-- Navbar -->
-  <nav class="bg-[#FFFFFF] border-gray-200">
+  <nav class="fixed top-0 w-full z-50 bg-[#FFFFFF] border-b border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="img/LogoNetoraOnly.png" class="h-12" alt="Netora Logo" />
         <span class="self-center text-3xl font-bold text-[#BD2B2B]">NETORA</span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-sm text-[#BD2B2B] rounded-lg md:hidden hover:bg-[#660000] focus:outline-none focus:ring-2 focus:ring-gray-200"
         aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -55,67 +55,125 @@
     </div>
   </nav>
 
+  <!-- Agrega un padding-top al contenido principal para que no quede oculto detrás del navbar -->
+  <div class="pt-20">
+    <!-- Aquí va el resto de tu contenido -->
+  </div>
+
+
   <!-- Contenido principal -->
-    <section class="py-24 relative bg-white">
-      <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-            <div class="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
+  <section class="py-24 relative bg-white">
+    <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+      <div class="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
 
-                <!-- Imágenes -->
-                <div
-                    class="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
-                    <div class="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
-                        <img class="rounded-xl object-cover" src="img/acercadeimg1.jpg"
-                            alt="Servicios Claro Empresas" />
-                    </div>
-                    <img class="sm:ml-0 ml-auto rounded-xl object-cover" src="img/acercadeimg2.jpg"
-                        alt="Soluciones corporativas" />
-                </div>
-
-                <!-- Contenido -->
-                <div class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
-                    <div class="w-full flex-col justify-center items-start gap-8 flex">
-                        <div class="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-                            <h2
-                                class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
-                                Conectando Negocios, Impulsando Resultados
-                            </h2>
-                            <p class="text-gray-600 text-base font-normal leading-relaxed lg:text-start text-center">
-                                En <strong>NETORA</strong> somos aliados estratégicos de <strong>Claro
-                                    Empresas</strong>, ofreciendo soluciones integrales de conectividad, telefonía y
-                                servicios corporativos.
-                                Nuestro compromiso es brindarte herramientas tecnológicas que optimicen la comunicación,
-                                aumenten la productividad y fortalezcan la presencia digital de tu empresa.
-                            </p>
-                        </div>
-
-                        <!-- Métricas -->
-                        <div class="w-full lg:justify-start justify-center items-center sm:gap-10 gap-5 inline-flex">
-                            <div class="flex-col justify-start items-start inline-flex">
-                                <h3 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">21+</h3>
-                                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Años de experiencia</h6>
-                            </div>
-                            <div class="flex-col justify-start items-start inline-flex">
-                                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">12M</h4>
-                                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes conectados</h6>
-                            </div>
-                            <div class="flex-col justify-start items-start inline-flex">
-                                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">97%</h4>
-                                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes satisfechos
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Botón -->
-                    <a href="contacto.html"
-                        class="sm:w-fit w-full px-5 py-3 bg-[#BD2B2B] hover:bg-[#A12424] transition-all duration-700 ease-in-out rounded-lg shadow-lg justify-center items-center flex">
-                        <span class="px-1.5 text-white text-sm font-medium leading-6">Contáctanos</span>
-                    </a>
-
-                </div>
-            </div>
+        <!-- Imágenes -->
+        <div class="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
+          <div class="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
+            <img class="rounded-xl object-cover" src="img/acercadeimg1.jpg" alt="Servicios Claro Empresas" />
+          </div>
+          <img class="sm:ml-0 ml-auto rounded-xl object-cover" src="img/acercadeimg2.jpg"
+            alt="Soluciones corporativas" />
         </div>
-    </section>
+
+        <!-- Contenido -->
+        <div class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
+          <div class="w-full flex-col justify-center items-start gap-8 flex">
+            <div class="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
+              <h2 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
+                Conectando Negocios, Impulsando Resultados
+              </h2>
+              <p class="text-gray-600 text-base font-normal leading-relaxed lg:text-start text-center">
+                En <strong>NETORA</strong> somos aliados estratégicos de <strong>Claro
+                  Empresas</strong>, ofreciendo soluciones integrales de conectividad, telefonía y
+                servicios corporativos.
+                Nuestro compromiso es brindarte herramientas tecnológicas que optimicen la comunicación,
+                aumenten la productividad y fortalezcan la presencia digital de tu empresa.
+              </p>
+            </div>
+
+            <!-- Métricas -->
+            <div class="w-full lg:justify-start justify-center items-center sm:gap-10 gap-5 inline-flex">
+              <div class="flex-col justify-start items-start inline-flex">
+                <h3 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">21+</h3>
+                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Años de experiencia</h6>
+              </div>
+              <div class="flex-col justify-start items-start inline-flex">
+                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">12M</h4>
+                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes conectados</h6>
+              </div>
+              <div class="flex-col justify-start items-start inline-flex">
+                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">97%</h4>
+                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes satisfechos
+                </h6>
+              </div>
+            </div>
+          </div>
+          <style>
+            @keyframes glowAnimation {
+              0% {
+                box-shadow: 0 0 5px #c72d2d, 0 0 10px #ffffff, 0 0 15px #ff0000;
+              }
+
+              50% {
+                box-shadow: 0 0 15px #c72d2d, 0 0 25px #ffffff, 0 0 35px #ff0000;
+              }
+
+              100% {
+                box-shadow: 0 0 5px #c72d2d, 0 0 10px #ffffff, 0 0 15px #ff0000;
+              }
+            }
+
+            .glow-btn {
+              animation: glowAnimation 1.5s infinite ease-in-out;
+            }
+          </style>
+
+          <!-- Botón con resplandor -->
+          <a href="contacto.html"
+            class="sm:w-fit w-full px-5 py-3 bg-[#BD2B2B] hover:bg-[#A12424] transition-all duration-700 ease-in-out rounded-lg shadow-lg justify-center items-center flex glow-btn">
+            <span class="px-1.5 text-white text-sm font-medium leading-6">Contáctanos</span>
+          </a>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+      <div class="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
+
+        <!-- Contenido -->
+        <div
+          class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex lg:order-first order-last">
+          <div class="w-full flex-col justify-center items-start gap-8 flex">
+            <div class="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
+              <h2 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
+                Soluciones Inteligentes para Empresas Peruanas
+              </h2>
+
+              <p class="text-gray-600 text-base font-normal leading-relaxed lg:text-start text-center">
+                En <strong>NETORA</strong> somos una empresa peruana de <strong>Telecomunicaciones</strong> dedicada a
+                ofrecer soluciones integrales en conectividad, datos y servicios digitales para empresas de todos los
+                tamaños. Nos enfocamos en atender a clientes corporativos, destacando por nuestro servicio
+                personalizado, rápida respuesta técnica y compromiso con la innovación tecnológica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imágenes -->
+        <div class="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-last order-first">
+          <div class="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
+            <img class="rounded-xl object-cover" src="img/imgclaro.jpg" alt="Servicios Claro Empresas" />
+          </div>
+          <img class="sm:ml-0 ml-auto rounded-xl object-cover" src="img/ciberseguridad.jpg"
+            alt="Soluciones corporativas" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- Scripts de Flowbite -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
 </body>
