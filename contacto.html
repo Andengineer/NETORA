@@ -14,14 +14,14 @@
 <body style="background: linear-gradient(0deg, #FFFFFF);">
 
     <!-- Navbar -->
-    <nav class="bg-[#FFFFFF] border-gray-200">
+    <nav class="fixed top-0 w-full z-50 bg-[#FFFFFF] border-b border-gray-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="img/LogoNetoraOnly.png" class="h-12" alt="Netora Logo" />
                 <span class="self-center text-3xl font-bold text-[#BD2B2B]">NETORA</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-sm text-[#BD2B2B] rounded-lg md:hidden hover:bg-[#660000] focus:outline-none focus:ring-2 focus:ring-gray-200"
                 aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -54,7 +54,10 @@
 
         </div>
     </nav>
-
+    <!-- Agrega un padding-top al contenido principal para que no quede oculto detrás del navbar -->
+    <div class="pt-20">
+        <!-- Aquí va el resto de tu contenido -->
+    </div>
     <!-- Sección Contacto -->
     <section class="bg-transparent min-h-[calc(100vh-64px)]">
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -137,9 +140,9 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="https://flowbite.com/" class="flex items-center">
+                <a href="" class="flex items-center">
                     <img src="img/LogoNetoraOnly.png" class="h-10" alt="Netora Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Netora</span>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NETORA</span>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
