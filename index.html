@@ -15,7 +15,7 @@
 <body class="bg--100">
 
   <!-- Navbar -->
-  <nav class="bg-[##FFFFFF] border-gray-200">
+  <nav class="bg-[#FFFFFF] border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="img/LogoNetoraOnly.png" class="h-12" alt="Netora Logo" />
@@ -36,7 +36,7 @@
           <li><a href="index.html"
               class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Inicio</a>
           </li>
-          <li><a href="#"
+          <li><a href="acerca.html"
               class="block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Acerca
               de</a>
           </li>
@@ -56,11 +56,66 @@
   </nav>
 
   <!-- Contenido principal -->
-  <main class="bg-transparent min-h-[calc(100vh-64px)]">
-    <h1 class="text-3xl font-bold mb-4">Bienvenido a mi página</h1>
-    <p class="text-gray-700">Aquí puedes añadir tu contenido principal...</p>
-  </main>
+    <section class="py-24 relative bg-white">
+      <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+            <div class="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
 
+                <!-- Imágenes -->
+                <div
+                    class="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
+                    <div class="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
+                        <img class="rounded-xl object-cover" src="img/acercadeimg1.jpg"
+                            alt="Servicios Claro Empresas" />
+                    </div>
+                    <img class="sm:ml-0 ml-auto rounded-xl object-cover" src="img/acercadeimg2.jpg"
+                        alt="Soluciones corporativas" />
+                </div>
+
+                <!-- Contenido -->
+                <div class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
+                    <div class="w-full flex-col justify-center items-start gap-8 flex">
+                        <div class="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
+                            <h2
+                                class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
+                                Conectando Negocios, Impulsando Resultados
+                            </h2>
+                            <p class="text-gray-600 text-base font-normal leading-relaxed lg:text-start text-center">
+                                En <strong>NETORA</strong> somos aliados estratégicos de <strong>Claro
+                                    Empresas</strong>, ofreciendo soluciones integrales de conectividad, telefonía y
+                                servicios corporativos.
+                                Nuestro compromiso es brindarte herramientas tecnológicas que optimicen la comunicación,
+                                aumenten la productividad y fortalezcan la presencia digital de tu empresa.
+                            </p>
+                        </div>
+
+                        <!-- Métricas -->
+                        <div class="w-full lg:justify-start justify-center items-center sm:gap-10 gap-5 inline-flex">
+                            <div class="flex-col justify-start items-start inline-flex">
+                                <h3 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">21+</h3>
+                                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Años de experiencia</h6>
+                            </div>
+                            <div class="flex-col justify-start items-start inline-flex">
+                                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">12M</h4>
+                                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes conectados</h6>
+                            </div>
+                            <div class="flex-col justify-start items-start inline-flex">
+                                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal">97%</h4>
+                                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes satisfechos
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón -->
+                    <a href="contacto.html"
+                        class="sm:w-fit w-full px-5 py-3 bg-[#BD2B2B] hover:bg-[#A12424] transition-all duration-700 ease-in-out rounded-lg shadow-lg justify-center items-center flex">
+                        <span class="px-1.5 text-white text-sm font-medium leading-6">Contáctanos</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
   <!-- Scripts de Flowbite -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
 </body>
