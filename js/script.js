@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       // Ejemplo usando Formspree (cambia la URL por la tuya)
-      const response = await fetch("https://formspree.io/f/mdkdrzlv", {
+      const response = await fetch("https://formspree.io/f/mldlyzvy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
