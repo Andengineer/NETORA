@@ -19,36 +19,47 @@
       <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="img/LogoNetoraOnly.png" class="h-12" alt="Netora Logo" />
         <style>
-  /* Efecto metálico azul */
-  
-  .metallic-blue {
-    background: linear-gradient(
-      120deg,
-      #5a75ff 0%,     /* azul brillante */
-      #2a47c9 15%,    /* azul vivo */
-      #142E85 30%,    /* azul oscuro */
-      #0f246a 50%,    /* más oscuro */
-      #142E85 70%,    /* azul oscuro */
-      #5a75ff 85%,    /* azul brillante */
-      #2a47c9 100%    /* azul vivo */
-    );
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine-blue 4s ease-in-out infinite;
-    line-height: 1.2;
-    display: inline-block;
-    line-height: 1.2;
-    padding-bottom: 0.1em;
-  }
+          /* Efecto metálico azul */
 
-  @keyframes shine-blue {
-    0% { background-position: 200% 0%; }
-    100% { background-position: -200% 0%; }
-  }
-</style>
+          .metallic-blue {
+            background: linear-gradient(120deg,
+                #5a75ff 0%,
+                /* azul brillante */
+                #2a47c9 15%,
+                /* azul vivo */
+                #142E85 30%,
+                /* azul oscuro */
+                #0f246a 50%,
+                /* más oscuro */
+                #142E85 70%,
+                /* azul oscuro */
+                #5a75ff 85%,
+                /* azul brillante */
+                #2a47c9 100%
+                /* azul vivo */
+              );
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine-blue 4s ease-in-out infinite;
+            line-height: 1.2;
+            display: inline-block;
+            line-height: 1.2;
+            padding-bottom: 0.1em;
+          }
 
-<span class="self-center text-3xl font-bold metallic-blue">NETORA</span>
+          @keyframes shine-blue {
+            0% {
+              background-position: 200% 0%;
+            }
+
+            100% {
+              background-position: -200% 0%;
+            }
+          }
+        </style>
+
+        <span class="self-center text-3xl font-bold metallic-blue">NETORA</span>
 
       </a>
       <button data-collapse-toggle="navbar-default" type="button"
@@ -243,11 +254,62 @@
       <!-- Perfil Main  -->
       <div>
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/Julio.png" alt="Bonnie Avatar">
+          <style>
+            .metallic-border-red {
+              position: relative;
+              display: inline-block;
+              border-radius: 90px;
+            }
+
+            .metallic-border-red::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              padding: 2px;
+              /* grosor del borde */
+              border-radius: 90px;
+              background: linear-gradient(120deg,
+                  #ff6b6b 0%,
+                  #BD2B2B 20%,
+                  #7a1c1c 40%,
+                  #BD2B2B 60%,
+                  #ff6b6b 80%,
+                  #BD2B2B 100%);
+              background-size: 200% 200%;
+              animation: shine-border-red 3s linear infinite;
+              -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+            }
+
+            .metallic-border-red img {
+              border-radius: 90px;
+              display: block;
+            }
+
+            @keyframes shine-border-red {
+              0% {
+                background-position: 200% 0%;
+              }
+
+              100% {
+                background-position: -200% 0%;
+              }
+            }
+          </style>
+
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/Julio.png" alt="Bonnie Avatar">
+          </div>
+
+
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a  class="metallic-blue"href="https://www.linkedin.com/in/julio-silva-chamorro-b44a51147" target="_blank">Julio
+            <a class="metallic-blue" href="https://www.linkedin.com/in/julio-silva-chamorro-b44a51147"
+              target="_blank">Julio
               Silva</a>
           </h3>
           <p>Gerente General</p>
@@ -271,11 +333,14 @@
 
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400 ">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/2.png" alt="Bonnie Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/2.png" alt="Bonnie Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/erick-bravo-088a76126" target="_blank">Erick Bravo</a>
+            <a class="metallic-blue" href="https://www.linkedin.com/in/erick-bravo-088a76126" target="_blank">Erick
+              Bravo</a>
           </h3>
           <p>Gerente Comercial</p>
           <ul class="flex justify-center mt-4 space-x-4">
@@ -295,11 +360,14 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/3.png" alt="Helene Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/3.png" alt="Helene Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/bronella-silva-55a47130b" target="_blank">Bronella
+            <a class="metallic-blue" href="https://www.linkedin.com/in/bronella-silva-55a47130b"
+              target="_blank">Bronella
               Silva</a>
           </h3>
           <p>Back Office</p>
@@ -320,11 +388,14 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/4.png" alt="Jese Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/4.png" alt="Jese Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/andrea-camila-guevara-rios-433314286" target="_blank">Andrea
+            <a class="metallic-blue" href="https://www.linkedin.com/in/andrea-camila-guevara-rios-433314286"
+              target="_blank">Andrea
               Guevara</a>
           </h3>
           <p>Especialista de Marketing</p>
@@ -345,11 +416,14 @@
         </div>
         <!-- Perfil 222 -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/10.png" alt="Neil Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/10.png" alt="Neil Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/evelyn-g-939024176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            <a class="metallic-blue"
+              href="https://www.linkedin.com/in/evelyn-g-939024176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank">Evelyn Gonzales</a>
           </h3>
           <p>Supervisora de Ventas</p>
@@ -370,11 +444,14 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/6.png" alt="Sofia Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/6.png" alt="Sofia Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/yesica-valqui-9364561aa" target="_blank">Yesica Valqui</a>
+            <a class="metallic-blue" href="https://www.linkedin.com/in/yesica-valqui-9364561aa" target="_blank">Yesica
+              Valqui</a>
           </h3>
           <p>Ejecutivo Comercial</p>
           <ul class="flex justify-center mt-4 space-x-4">
@@ -394,11 +471,14 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/7.png" alt="Leslie Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/7.png" alt="Leslie Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/percy-jairo-campos-mavila-b33523146" target="_blank">Percy
+            <a class="metallic-blue" href="https://www.linkedin.com/in/percy-jairo-campos-mavila-b33523146"
+              target="_blank">Percy
               Campos</a>
           </h3>
           <p>Ejecutivo Comercial</p>
@@ -419,8 +499,10 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/8.png" alt="Michael Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/8.png" alt="Michael Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
             <a class="metallic-blue" href="https://www.linkedin.com/in/sandra-palacios-24123b37b" target="_blank">Sandra
@@ -444,11 +526,14 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/9.png" alt="Neil Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/9.png" alt="Neil Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/yubitza-cruz-luna-58b55037b" target="_blank">Yubitza Cruz </a>
+            <a class="metallic-blue" href="https://www.linkedin.com/in/yubitza-cruz-luna-58b55037b"
+              target="_blank">Yubitza Cruz </a>
           </h3>
           <p>Ejecutivo Comercial</p>
           <ul class="flex justify-center mt-4 space-x-4">
@@ -473,8 +558,10 @@
 
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/12.png" alt="Neil Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/12.png" alt="Neil Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
             <a class="metallic-blue" href="#">Cecilia Vasquez</a>
@@ -496,8 +583,10 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/5.png" alt="Joseph Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/5.png" alt="Joseph Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
             <a class="metallic-blue" href="https://www.linkedin.com/in/romina-vasquez-1444b737b" target="_blank">Romina
@@ -521,11 +610,14 @@
         </div>
         <!-- Perfil  -->
         <div class="text-center text-gray-500 dark:text-gray-400">
-          <img class="mx-auto mb-4 w-56 h-72 object-cover rounded-[90px] shadow-xl border border-[#BD2B2B]"
-            src="img/13.png" alt="Neil Avatar">
+          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
+            <img class="w-56 h-72 object-cover" src="img/13.png" alt="Neil Avatar">
+          </div>
+
           <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
 
-            <a class="metallic-blue" href="https://www.linkedin.com/in/antonella-paredes-26348237a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            <a class="metallic-blue"
+              href="https://www.linkedin.com/in/antonella-paredes-26348237a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
               target="_blank">Antonella Paredes</a>
           </h3>
           <p>Ejecutivo Comercial</p>
@@ -588,82 +680,87 @@
         </style>
 
 
+        <style>
+          .metallic-card-red {
+            background: linear-gradient(135deg,
+                #ff6b6b 0%,
+                #BD2B2B 25%,
+                #7a1c1c 50%,
+                #BD2B2B 75%,
+                #ff6b6b 100%);
+            background-size: 200% 200%;
+            animation: metallicDiagonal 5s ease-in-out infinite;
+          }
+
+          @keyframes metallicDiagonal {
+            0% {
+              background-position: 0% 0%;
+            }
+
+            50% {
+              background-position: 100% 100%;
+            }
+
+            100% {
+              background-position: 0% 0%;
+            }
+          }
+        </style>
+
+
         <div
-          class="flex flex-col justify-center p-6 mx-auto max-w-lg text-center bg-[#BD2B2B] rounded-lg border border-gray-100 shadow xl:p-8">
-
+          class="metallic-card-red flex flex-col justify-center p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow xl:p-8">
           <h3 class="mb-4 text-2xl font-semibold metallic-text">Internet Claro Empresas Digital</h3>
-          <p class="font-light sm:text-lg metallic-text">
-            Paquete integral que combina Internet con hasta 7 herramientas digitales, ideal para impulsar la
-            productividad de tu negocio.
-          </p>
-
-          <div class="flex justify-center items-baseline my-8">
-            <span class="mr-2 text-4xl font-extrabold metallic-text">Incluye</span>
-          </div>
-
-          <!-- Lista de herramientas -->
+          <p class="font-light sm:text-lg metallic-text"> Paquete integral que combina Internet con hasta 7 herramientas
+            digitales, ideal para impulsar la productividad de tu negocio. </p>
+          <div class="flex justify-center items-baseline my-8"> <span
+              class="mr-2 text-4xl font-extrabold metallic-text">Incluye</span> </div> <!-- Lista de herramientas -->
           <ul role="list" class="mb-8 space-y-4 text-left">
-            <li class="flex items-center space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
+            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
+                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                   clip-rule="evenodd"></path>
-              </svg>
-              <span><span class="font-semibold">Claro Drive Negocio</span> – nube para guardar y compartir
-                archivos</span>
-            </li>
-            <li class="flex items-center space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
+              </svg> <span><span class="font-semibold">Claro Drive Negocio</span> – nube para guardar y compartir
+                archivos</span> </li>
+            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
+                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                   clip-rule="evenodd"></path>
-              </svg>
-              <span><span class="font-semibold">Claro Backup</span> – respaldo seguro de datos</span>
-            </li>
-            <li class="flex items-center space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
+              </svg> <span><span class="font-semibold">Claro Backup</span> – respaldo seguro de datos</span> </li>
+            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
+                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                   clip-rule="evenodd"></path>
-              </svg>
-              <span><span class="font-semibold">Email Empresas</span> – correos personalizados con dominio
-                corporativo</span>
-            </li>
-            <li class="flex items-center space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
+              </svg> <span><span class="font-semibold">Email Empresas</span> – correos personalizados con dominio
+                corporativo</span> </li>
+            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
+                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                   clip-rule="evenodd"></path>
-              </svg>
-              <span><span class="font-semibold">Tienda Virtual</span> – página web para vender online con facturación
-                electrónica</span>
-            </li>
-            <li class="flex items-center space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
+              </svg> <span><span class="font-semibold">Tienda Virtual</span> – página web para vender online con
+                facturación electrónica</span> </li>
+            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
+                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                   clip-rule="evenodd"></path>
-              </svg>
-              <span><span class="font-semibold">Microsoft 365</span> – apps como Word, Excel, PowerPoint y Teams</span>
-            </li>
-          </ul>
-
-          <a href="#contacto"
+              </svg> <span><span class="font-semibold">Microsoft 365</span> – apps como Word, Excel, PowerPoint y
+                Teams</span> </li>
+          </ul> <a href="#contacto"
             class="text-white bg-[#142E85] hover:bg-[#0F2261] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Contratar ahora
-          </a>
+            Solicitar Información </a>
         </div>
+
 
         <!-- Pricing Card -->
 
 
         <div
-          class="flex flex-col justify-center p-6 mx-auto max-w-lg text-center bg-[#BD2B2B] rounded-lg border border-gray-100 shadow xl:p-8">
+          class="metallic-card-red flex flex-col justify-center p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow xl:p-8">
 
           <h3 class="mb-4 text-2xl font-semibold metallic-text">Factura Electrónica Web</h3>
           <p class="font-light sm:text-lg metallic-text">
@@ -711,14 +808,14 @@
 
           <a href="#contacto"
             class="text-white bg-[#142E85] hover:bg-[#0F2261] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Contratar ahora
+            Solicitar Información
           </a>
         </div>
 
 
         <!-- Pricing Card -->
         <div
-          class="flex flex-col justify-center p-6 mx-auto max-w-lg text-center bg-[#BD2B2B] rounded-lg border border-gray-100 shadow xl:p-8">
+          class="metallic-card-red flex flex-col justify-center p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow xl:p-8">
 
           <h3 class="mb-4 text-2xl font-semibold metallic-text">Claro Cloud Empresarial</h3>
           <p class="font-light sm:text-lg metallic-text">
