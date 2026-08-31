@@ -116,7 +116,8 @@
 
   /* -------------------------------------------------------------------------
      4. SECTION TONE
-     Toggles the soft tint on banded sections as they enter and leave view.
+     Toggles the tint on banded sections, and the full colour inversion on
+     .section-dark, as they cross the middle of the viewport.
      Unlike the reveal this stays observed, because the colour has to move
      back when the section leaves. Only background-color transitions, which
      the compositor handles without layout work.
@@ -124,22 +125,21 @@
      continuous colour move while scrolling.
      ---------------------------------------------------------------------- */
   function initTone() {
-    var bands = document.querySelectorAll('.section-soft, .cta-block');
+    // .cta-block is deliberately excluded: it carries .reveal, which owns the
+    // is-in class, and toggling it here would hide the block on scroll.
+    var bands = document.querySelectorAll('.section-soft, .section-dark');
     if (!bands.length || !hasObserver) return;
 
     if (prefersReducedMotion) {
-      Array.prototype.forEach.call(bands, function (el) {
-        el.classList.add(el.classList.contains('cta-block') ? 'is-in' : 'is-toned');
-      });
+      Array.prototype.forEach.call(bands, function (el) { el.classList.add('is-toned'); });
       return;
     }
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        var cls = entry.target.classList.contains('cta-block') ? 'is-in' : 'is-toned';
-        entry.target.classList.toggle(cls, entry.isIntersecting);
+        entry.target.classList.toggle('is-toned', entry.isIntersecting);
       });
-    }, { rootMargin: '-8% 0px -8% 0px', threshold: 0 });
+    }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
 
     Array.prototype.forEach.call(bands, function (el) { observer.observe(el); });
   }

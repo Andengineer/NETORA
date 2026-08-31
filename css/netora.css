@@ -585,9 +585,17 @@ select.control {
 
 /* ---------------------------------------------------------------------------
    SECTION TONE
-   The banded sections fade between white and the soft tint as they enter and
-   leave the viewport, so scrolling reads as one continuous colour move
-   instead of hard edges. Only background-color animates.
+   Two kinds of band:
+
+   .section-soft  a light tint, for gentle separation.
+   .section-dark  a full inversion. When it reaches the middle of the
+                  viewport the section redefines the colour tokens on itself.
+                  Because those tokens are inherited custom properties, every
+                  heading, paragraph, border and icon inside follows with no
+                  extra rules. Scrolling past reads as the page turning over.
+
+   This is the page's one deliberate colour-block moment, used twice, and it
+   always returns to white when the section leaves.
    ------------------------------------------------------------------------ */
 .section-soft {
   background: var(--bg);
@@ -598,12 +606,49 @@ select.control {
   background: var(--bg-soft);
   border-block-color: var(--border-soft);
 }
-/* The closing block deepens slightly as it comes into view. */
-.cta-block { transition: box-shadow 0.9s var(--ease), transform 0.9s var(--ease); }
-.cta-block.is-in { box-shadow: var(--shadow-lg); }
 
+.section-dark {
+  background: var(--bg);
+  border-block: 1px solid transparent;
+}
+.section-dark.is-toned {
+  --bg:          #171213;
+  --bg-soft:     #201a1b;
+  --surface:     #201a1b;
+  --border:      #322a29;
+  --border-soft: #251e1e;
+
+  --text:        #f7f7f8;
+  --text-muted:  #b9b2b0;
+  --text-dim:    #968e8c;
+
+  /* Brand red is lifted here so it still clears AA against near-black. */
+  --primary:      #ef5460;
+  --primary-soft: rgba(239, 84, 96, 0.14);
+  --primary-line: rgba(239, 84, 96, 0.32);
+
+  background: var(--bg);
+  color: var(--text);
+  border-block-color: var(--border-soft);
+}
+
+/* Custom properties do not animate, so the elements that read them carry the
+   transition themselves. Scoped to these two sections only. */
+.section-dark,
+.section-dark h2, .section-dark h3,
+.section-dark p, .section-dark span, .section-dark a,
+.section-dark li, .section-dark .card, .section-dark .person-photo {
+  transition: background-color 0.75s var(--ease),
+              color 0.75s var(--ease),
+              border-color 0.75s var(--ease);
+}
+
+/* On a dark ground the certified figure reads better in plain white. */
+.section-dark.is-toned .stat-value.is-accent { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .section-soft { background: var(--bg-soft); border-block-color: var(--border-soft); }
+  /* No fade, but the inversion still applies so the design is intact. */
+  .section-dark, .section-dark * { transition: none !important; }
 }
 
 /* ---------------------------------------------------------------------------
