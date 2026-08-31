@@ -32,7 +32,7 @@
   <!-- Phosphor Icons. One icon family for the whole page. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
-  <link rel="stylesheet" href="css/netora.css?v=4">
+  <link rel="stylesheet" href="css/netora.css?v=5">
 
   <!-- Reveal-on-scroll hides content until it animates in, so it must never
        be able to strand the page. The js-reveal class is added only when
@@ -171,10 +171,10 @@
             el mismo número.
           </p>
           <div class="card-tags">
-            <span class="tag">Portabilidad</span>
-            <span class="tag">Voz y datos</span>
-            <span class="tag">Líneas adicionales</span>
-            <span class="tag">Renovación de plan</span>
+            <span class="tag"><i class="ph ph-arrows-left-right" aria-hidden="true"></i>Portabilidad</span>
+            <span class="tag"><i class="ph ph-phone-call" aria-hidden="true"></i>Voz y datos</span>
+            <span class="tag"><i class="ph ph-plus-circle" aria-hidden="true"></i>Líneas adicionales</span>
+            <span class="tag"><i class="ph ph-arrow-clockwise" aria-hidden="true"></i>Renovación de plan</span>
           </div>
         </article>
 
@@ -187,9 +187,10 @@
             el resto de tus servicios.
           </p>
           <div class="card-tags">
-            <span class="tag">Microsoft 365</span>
-            <span class="tag">Google Workspace</span>
-            <span class="tag">Backup</span>
+            <span class="tag"><i class="ph ph-microsoft-outlook-logo" aria-hidden="true"></i>Microsoft 365</span>
+            <span class="tag"><img src="img/brands/google.svg" alt="" width="16" height="16" loading="lazy">Google Workspace</span>
+            <span class="tag"><img src="img/brands/gemini.svg" alt="" width="16" height="16" loading="lazy">Gemini</span>
+            <span class="tag"><i class="ph ph-cloud-arrow-up" aria-hidden="true"></i>Backup</span>
           </div>
         </article>
 
@@ -202,9 +203,9 @@
             alguien que responde cuando se cae.
           </p>
           <div class="card-tags">
-            <span class="tag">Fibra FTTH</span>
-            <span class="tag">Internet dedicado</span>
-            <span class="tag">RPV</span>
+            <span class="tag"><i class="ph ph-cell-tower" aria-hidden="true"></i>Fibra FTTH</span>
+            <span class="tag"><i class="ph ph-gauge" aria-hidden="true"></i>Internet dedicado</span>
+            <span class="tag"><i class="ph ph-lock-key" aria-hidden="true"></i>RPV</span>
           </div>
         </article>
 
@@ -217,16 +218,31 @@
             No solo te vendemos el equipo.
           </p>
           <div class="card-tags">
-            <span class="tag">Wifi gestionado</span>
-            <span class="tag">Seguridad administrada</span>
-            <span class="tag">SD-WAN</span>
-            <span class="tag">Videovigilancia</span>
+            <span class="tag"><i class="ph ph-wifi-high" aria-hidden="true"></i>Wifi gestionado</span>
+            <span class="tag"><i class="ph ph-shield-check" aria-hidden="true"></i>Seguridad administrada</span>
+            <span class="tag"><i class="ph ph-graph" aria-hidden="true"></i>SD-WAN</span>
+            <span class="tag"><i class="ph ph-video-camera" aria-hidden="true"></i>Videovigilancia</span>
           </div>
         </article>
 
       </div>
 
-      <p class="small reveal" style="margin-top:26px">
+      <!-- Product strip. Logos only, no captions: the mark is the message.
+           Every file is served from img/brands/ rather than a third-party
+           CDN, so nothing here can break if that CDN does. -->
+      <div class="logo-strip reveal">
+        <p class="logo-strip-title">Trabajamos con las plataformas que ya usas</p>
+        <div class="logo-row">
+          <span class="logo-word">Microsoft 365</span>
+          <img src="img/brands/google.svg" alt="Google Workspace" height="26" loading="lazy">
+          <img src="img/brands/gemini.svg" alt="Google Gemini" height="26" loading="lazy">
+          <img src="img/brands/azure.svg" alt="Microsoft Azure" height="26" loading="lazy">
+          <img src="img/brands/googlecloud.svg" alt="Google Cloud" height="26" loading="lazy">
+          <img src="img/brands/aws.svg" alt="Amazon Web Services" height="26" loading="lazy">
+        </div>
+      </div>
+
+      <p class="small reveal" style="margin-top:30px">
         También tomamos proyectos a medida: desarrollo, analítica e IoT.
       </p>
     </section>
@@ -683,7 +699,7 @@
     <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
   </a>
 
-  <script src="js/script.js?v=4" defer></script>
+  <script src="js/script.js?v=5" defer></script>
 </body>
 
 </html>
