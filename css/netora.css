@@ -573,13 +573,15 @@ select.control {
    only transform and opacity animate, so every frame is GPU-composited.
    ------------------------------------------------------------------------ */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
+  /* Scoped to .js-reveal: without that class (stale or failed script) the
+     content is simply visible, never stranded at opacity 0. */
+  .js-reveal .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
     transition-delay: calc(var(--i, 0) * 80ms);
   }
-  .reveal.is-in { opacity: 1; transform: none; }
+  .js-reveal .reveal.is-in { opacity: 1; transform: none; }
 
   /* The hero is already on screen at load, so it animates on load rather
      than waiting for an intersection that has already happened. */

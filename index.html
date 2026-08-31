@@ -32,13 +32,25 @@
   <!-- Phosphor Icons. One icon family for the whole page. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
-  <link rel="stylesheet" href="css/netora.css">
+  <link rel="stylesheet" href="css/netora.css?v=2">
 
-  <!-- Without JS the IntersectionObserver never runs, so reveal targets would
-       stay at opacity 0. This makes the page render fully instead. -->
-  <noscript>
-    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
-  </noscript>
+  <!-- Reveal-on-scroll hides content until it animates in, so it must never
+       be able to strand the page. The js-reveal class is added only when
+       this browser can actually run the reveal, and a failsafe strips it if
+       the external script never takes over: stale cache, blocked request,
+       network failure or a JS error. Without the class, .reveal content is
+       simply visible. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      if (!("IntersectionObserver" in window)) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      root.classList.add("js-reveal");
+      setTimeout(function () {
+        if (!window.__netoraRevealReady) root.classList.remove("js-reveal");
+      }, 1500);
+    })();
+  </script>
 </head>
 
 <body>
@@ -634,7 +646,7 @@
     <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
   </a>
 
-  <script src="js/script.js" defer></script>
+  <script src="js/script.js?v=2" defer></script>
 </body>
 
 </html>

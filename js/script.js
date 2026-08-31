@@ -92,6 +92,10 @@
       return;
     }
 
+    // Tell the inline head failsafe that the reveal is under control, so it
+    // does not strip the js-reveal class out from under us.
+    window.__netoraRevealReady = true;
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
