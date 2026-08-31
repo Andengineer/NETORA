@@ -1,0 +1,10 @@
+# Internal business material. Contains the CRM export and, in
+# 04-contacto.md, the work email addresses of 16 named employees.
+# This repository is public (GitHub Pages), so this folder stays local.
+Contexto/
+Landing page improvement-handoff/
+Landing page improvement-handoff.zip
+
+# Local agent/editor tooling
+.agents/
+.claude/

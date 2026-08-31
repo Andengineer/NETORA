@@ -3,1136 +3,638 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netora Management</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b4202e">
+
+  <title>Netora | Telefonía, internet y nube para tu empresa</title>
+  <meta name="description"
+    content="Distribuidor autorizado de Claro Empresas en Lima. Líneas móviles, internet dedicado, Microsoft 365 y servicios gestionados, en una sola factura. Un consultor te acompaña.">
+
   <link rel="icon" type="image/png" href="img/LogoNetoraOnly.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Flowbite CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
+  <link rel="canonical" href="https://netoramanagement.org/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://netoramanagement.org/">
+  <meta property="og:title" content="Netora | Telefonía, internet y nube para tu empresa">
+  <meta property="og:description"
+    content="Distribuidor autorizado de Claro Empresas en Lima. Un consultor te arma el plan, hace el trámite y te acompaña.">
+  <meta property="og:image" content="https://netoramanagement.org/img/Netora.png">
+  <meta property="og:locale" content="es_PE">
+
+  <!-- Outfit for display, Inter for body. Inter is the CRM's typeface, so the
+       landing and the product read as the same company. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Phosphor Icons. One icon family for the whole page. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+  <link rel="stylesheet" href="css/netora.css">
+
+  <!-- Without JS the IntersectionObserver never runs, so reveal targets would
+       stay at opacity 0. This makes the page render fully instead. -->
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
 </head>
 
-<body class="bg--100">
-  <!-- Navbar -->
-  <nav class="fixed top-0 w-full z-50 bg-[#FFFFFF] border-b border-gray-200">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="img/LogoNetoraOnly.png" class="h-12" alt="Netora Logo" />
-        <style>
-          /* Efecto metálico azul */
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
-          .metallic-blue {
-            background: linear-gradient(120deg,
-                #5a75ff 0%,
-                /* azul brillante */
-                #2a47c9 15%,
-                /* azul vivo */
-                #142E85 30%,
-                /* azul oscuro */
-                #0f246a 50%,
-                /* más oscuro */
-                #142E85 70%,
-                /* azul oscuro */
-                #5a75ff 85%,
-                /* azul brillante */
-                #2a47c9 100%
-                /* azul vivo */
-              );
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine-blue 4s ease-in-out infinite;
-            line-height: 1.2;
-            display: inline-block;
-            line-height: 1.2;
-            padding-bottom: 0.1em;
-          }
-
-          @keyframes shine-blue {
-            0% {
-              background-position: 200% 0%;
-            }
-
-            100% {
-              background-position: -200% 0%;
-            }
-          }
-        </style>
-
-        <span class="self-center text-3xl font-bold metallic-blue">NETORA</span>
-
+  <!-- ===================================================================
+       HEADER. Single row at desktop, 68px tall, collapses under 900px.
+       ================================================================ -->
+  <header class="header" id="siteHeader">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Netora, inicio">
+        <img src="img/LogoNetoraOnly.png" alt="" width="34" height="34">
+        <span class="brand-word">Netora</span>
       </a>
-      <button data-collapse-toggle="navbar-default" type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-sm text-[#BD2B2B] rounded-lg md:hidden  focus:outline-none focus:ring-2 focus:ring-gray-200"
-        aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15" />
-        </svg>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav"
+        aria-label="Abrir menú">
+        <i class="ph ph-list" aria-hidden="true"></i>
       </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul
-          class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#FFFFFF] md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-          <li><a href="index.html"
-              class=" metallic-red py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Inicio</a>
-          </li>
-          <li><a href="#nosotros"
-              class="metallic-red block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Nosotros</a>
-          </li>
-          <li><a href="#servicios"
-              class="metallic-red block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Servicios</a>
-          </li>
-          <li><a href="#contacto"
-              class="metallic-red block py-2 px-3 text-[#BD2B2B] hover:text-red-700 md:hover:bg-transparent md:p-0">Contacto</a>
-          </li>
-        </ul>
-      </div>
 
+      <nav class="nav" id="primaryNav" data-open="false" aria-label="Navegación principal">
+        <a class="nav-link" href="#servicios">Servicios</a>
+        <a class="nav-link" href="#nosotros">Nosotros</a>
+        <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+        <a class="nav-link" href="#equipo">Equipo</a>
+        <a class="btn btn-primary" href="#contacto">Quiero una cotización</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- Agrega un padding-top al contenido principal para que no quede oculto detrás del navbar -->
-  <div class="pt-20">
-  </div>
+  <main id="main">
 
-  <!-- Contenido principal -->
-  <section class="py-24 relative bg-white">
-    <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-      <div class="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
+    <!-- =================================================================
+         HERO. Asymmetric split. Four text elements: eyebrow, headline,
+         subtext, CTAs. The "distribuidor autorizado" credential sits at
+         the top because it answers the visitor's first doubt.
+         ============================================================== -->
+    <section class="shell hero" id="top">
+      <div class="hero-copy">
+        <span class="eyebrow" style="--i:0">
+          <i class="ph ph-seal-check" aria-hidden="true"></i>Distribuidor autorizado de Claro Empresas en Lima
+        </span>
 
-        <!-- Imágenes -->
-        <div class="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
-          <div class="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
-            <img class="rounded-xl object-cover" src="img/acercadeimg1.jpg" alt="Servicios Claro Empresas" />
-          </div>
-          <img class="sm:ml-0 ml-auto rounded-xl object-cover" src="img/acercadeimg2.jpg"
-            alt="Soluciones corporativas" />
-        </div>
+        <h1 class="display" style="--i:1">
+          Telefonía, internet y nube para <span class="mark">tu empresa</span>
+        </h1>
 
-        <!-- Contenido -->
-        <div class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
-          <div class="w-full flex-col justify-center items-start gap-8 flex">
-            <div class="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-              <style>
-                /* Efecto metálico en rojo oscuro */
-                .metallic-red {
-                  background: linear-gradient(120deg,
-                      #ff4d4d 0%,
-                      #d12a2a 20%,
-                      #BD2B2B 40%,
-                      #a12323 60%,
-                      #BD2B2B 80%,
-                      #ff4d4d 100%);
-                  background-size: 200% 200%;
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  animation: shine-red 4s ease-in-out infinite;
-                  line-height: 1.2;
-                  /* evita que se recorte */
-                  padding-bottom: 0.2em;
-                  /* da espacio extra */
-                  display: inline-block;
-                  /* asegura que el clip no se corte */
-                }
+        <p class="lead" style="--i:2">
+          Un consultor te arma el plan, hace el trámite con Claro y te acompaña hasta que
+          todo está funcionando.
+        </p>
 
-                @keyframes shine-red {
-                  0% {
-                    background-position: 200% 0%;
-                  }
-
-                  100% {
-                    background-position: -200% 0%;
-                  }
-                }
-              </style>
-
-              <h2 class="metallic-red text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
-                Conectando Negocios, Impulsando Resultados
-              </h2>
-
-              <p class="text-gray-600 text-base font-normal leading-relaxed lg:text-start text-center">
-                En <strong>NETORA</strong> somos aliados estratégicos de <strong>Claro
-                  Empresas</strong>, ofreciendo soluciones integrales de conectividad, telefonía y
-                servicios corporativos.
-                Nuestro compromiso es brindarte herramientas tecnológicas que optimicen la comunicación,
-                aumenten la productividad y fortalezcan la presencia digital de tu empresa.
-              </p>
-            </div>
-
-            <!-- Métricas -->
-            <div class="w-full lg:justify-start justify-center items-center sm:gap-10 gap-5 inline-flex">
-              <div class="flex-col justify-start items-start inline-flex">
-                <h3 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal metallic-red">21+</h3>
-                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Años de experiencia</h6>
-              </div>
-              <div class="flex-col justify-start items-start inline-flex">
-                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal metallic-red">12M</h4>
-                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes conectados</h6>
-              </div>
-              <div class="flex-col justify-start items-start inline-flex">
-                <h4 class="text-[#BD2B2B] text-4xl font-bold font-manrope leading-normal metallic-red">97%</h4>
-                <h6 class="text-gray-600 text-base font-normal leading-relaxed">Clientes satisfechos
-                </h6>
-              </div>
-            </div>
-          </div>
-          <style>
-            @keyframes glowAnimation {
-              0% {
-                box-shadow: 0 0 5px #c72d2d, 0 0 10px #ffffff, 0 0 15px #ff0000;
-              }
-
-              50% {
-                box-shadow: 0 0 15px #c72d2d, 0 0 25px #ffffff, 0 0 35px #ff0000;
-              }
-
-              100% {
-                box-shadow: 0 0 5px #c72d2d, 0 0 10px #ffffff, 0 0 15px #ff0000;
-              }
-            }
-
-            .glow-btn {
-              animation: glowAnimation 1.5s infinite ease-in-out;
-            }
-          </style>
-
-          <!-- Botón con resplandor -->
-          <a href="#contacto"
-            class="metallic-card-red sm:w-fit w-full px-5 py-3 transition-all duration-700 ease-in-out rounded-lg shadow-lg justify-center items-center flex text-white">
-            <span class="px-1.5 text-white text-sm font-medium leading-6">Contáctanos</span>
-          </a>
-
-
+        <div class="hero-actions" style="--i:3">
+          <a class="btn btn-primary" href="#contacto">Quiero una cotización</a>
+          <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
         </div>
       </div>
-    </div>
-    <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-      <div class="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
 
-        <!-- Contenido -->
-        <div
-          class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex lg:order-first order-last">
-          <div class="w-full flex-col justify-center items-start gap-8 flex">
-            <div class="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-              <h2 class="metallic-red text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
-                Soluciones Inteligentes para Empresas Peruanas
-              </h2>
+      <figure class="hero-figure" style="--i:2">
+        <img src="img/imgclaro.jpg" alt="Consultor de Netora atendiendo a un cliente corporativo"
+          width="800" height="1000" fetchpriority="high" decoding="async">
+      </figure>
+    </section>
 
-              <p class="text-gray-600 text-base font-normal leading-relaxed lg:text-start text-center">
-                En <strong>NETORA</strong> somos una empresa peruana de <strong>Telecomunicaciones</strong> dedicada a
-                ofrecer soluciones integrales en conectividad, datos y servicios digitales para empresas de todos los
-                tamaños. Nos enfocamos en atender a clientes corporativos, destacando por nuestro servicio
-                personalizado, rápida respuesta técnica y compromiso con la innovación tecnológica.
-              </p>
-            </div>
-          </div>
+    <!-- =================================================================
+         STAT BAND. Every figure comes from the CRM (agosto 2026) and is
+         stated with its year so it ages honestly.
+         ============================================================== -->
+    <section class="section-soft" style="padding-block:clamp(40px,5vw,60px)">
+      <div class="shell stat-grid">
+        <div class="stat reveal" style="--i:0">
+          <span class="stat-value tnum">326</span>
+          <span class="stat-label">Empresas en cartera</span>
+          <span class="stat-note">Negocios, mayores y corporativas</span>
         </div>
-
-        <!-- Imágenes -->
-        <div class="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-last order-first">
-          <div class="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
-            <img class="rounded-xl object-cover" src="img/imgclaro.jpg" alt="Servicios Claro Empresas" />
-          </div>
-          <img class="sm:ml-0 ml-auto rounded-xl object-cover" src="img/ciberseguridad.jpg"
-            alt="Soluciones corporativas" />
+        <div class="stat reveal" style="--i:1">
+          <span class="stat-value tnum">+6,500</span>
+          <span class="stat-label">Servicios activados en 2026</span>
+          <span class="stat-note">Líneas, licencias y enlaces</span>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Contenido Acerca de -->
-  <section id="nosotros" style="scroll-margin-top: 30px;">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
-      <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-[#BD2B2B] metallic-red">Nosotros</h2>
-        <p class="mb-8 lg:mb-16 font-light text-center text-[#303030] sm:text-xl">Nuestro equipo combina experiencia y
-          creatividad
-          para impulsar el crecimiento de tu empresa a través de la conectividad y la innovación.</p>
-      </div>
-      <!-- Perfil Main  -->
-      <div>
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <style>
-            .metallic-border-red {
-              position: relative;
-              display: inline-block;
-              border-radius: 90px;
-            }
-
-            .metallic-border-red::before {
-              content: "";
-              position: absolute;
-              inset: 0;
-              padding: 2px;
-              /* grosor del borde */
-              border-radius: 90px;
-              background: linear-gradient(120deg,
-                  #ff6b6b 0%,
-                  #BD2B2B 20%,
-                  #7a1c1c 40%,
-                  #BD2B2B 60%,
-                  #ff6b6b 80%,
-                  #BD2B2B 100%);
-              background-size: 200% 200%;
-              animation: shine-border-red 3s linear infinite;
-              -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-              -webkit-mask-composite: xor;
-              mask-composite: exclude;
-            }
-
-            .metallic-border-red img {
-              border-radius: 90px;
-              display: block;
-            }
-
-            @keyframes shine-border-red {
-              0% {
-                background-position: 200% 0%;
-              }
-
-              100% {
-                background-position: -200% 0%;
-              }
-            }
-          </style>
-
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/Julio.png" alt="Bonnie Avatar">
-          </div>
-
-
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/julio-silva-chamorro-b44a51147"
-              target="_blank">Julio
-              Silva</a>
-          </h3>
-          <p>Gerente General</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/julio-silva-chamorro-b44a51147" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
+        <div class="stat reveal" style="--i:2">
+          <span class="stat-value tnum">10</span>
+          <span class="stat-label">Consultores corporativos</span>
+          <span class="stat-note">Equipo de 22 personas en total</span>
+        </div>
+        <div class="stat reveal" style="--i:3">
+          <!-- Near-black rather than brand red, so the one figure Claro
+               itself certifies separates from the three red ones. -->
+          <span class="stat-value tnum is-accent">132 %</span>
+          <span class="stat-label">Cumplimiento de cuota Claro</span>
+          <span class="stat-note">Liquidación oficial, julio 2026</span>
         </div>
       </div>
-      <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-6">
+    </section>
 
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400 ">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/2.png" alt="Bonnie Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/erick-bravo-088a76126" target="_blank">Erick
-              Bravo</a>
-          </h3>
-          <p>Gerente Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/erick-bravo-088a76126" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/3.png" alt="Helene Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/bronella-silva-55a47130b"
-              target="_blank">Bronella
-              Silva</a>
-          </h3>
-          <p>Back Office</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/bronella-silva-55a47130b" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/4.png" alt="Jese Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/andrea-camila-guevara-rios-433314286"
-              target="_blank">Andrea
-              Guevara</a>
-          </h3>
-          <p>Especialista de Marketing</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/andrea-camila-guevara-rios-433314286" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil 222 -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/10.png" alt="Neil Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue"
-              href="https://www.linkedin.com/in/evelyn-g-939024176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank">Evelyn Gonzales</a>
-          </h3>
-          <p>Supervisora de Ventas</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/evelyn-g-939024176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                target="_blank" class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/6.png" alt="Sofia Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/yesica-valqui-9364561aa" target="_blank">Yesica
-              Valqui</a>
-          </h3>
-          <p>Ejecutiva Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/yesica-valqui-9364561aa" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/7.png" alt="Leslie Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/percy-jairo-campos-mavila-b33523146"
-              target="_blank">Percy
-              Campos</a>
-          </h3>
-          <p>Ejecutivo Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/percy-jairo-campos-mavila-b33523146" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/8.png" alt="Michael Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/sandra-palacios-24123b37b" target="_blank">Sandra
-              Palacios</a>
-          </h3>
-          <p>Ejecutiva Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/sandra-palacios-24123b37b" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/9.png" alt="Neil Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/yubitza-cruz-luna-58b55037b"
-              target="_blank">Yubitza Cruz </a>
-          </h3>
-          <p>Ejecutiva Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/yubitza-cruz-luna-58b55037b" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
+    <!-- =================================================================
+         SERVICES. Four cards in order of real sales weight, per
+         Contexto/02-productos-y-servicios.md. Asymmetric 7/5 then 5/7
+         so the grid has rhythm instead of a repeating row.
+         ============================================================== -->
+    <section class="shell section" id="servicios">
+      <div class="section-head reveal">
+        <h2 class="h2">Todo lo que tu empresa necesita, en una sola factura</h2>
+        <p class="body">
+          Las líneas, el internet y el correo llegan en el mismo recibo de Claro, con un
+          solo contacto para todo.
+        </p>
       </div>
-      <!-- seccion segunda de perfiles  -->
-      <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 p-6">
 
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/12.png" alt="Neil Avatar">
-          </div>
+      <div class="bento">
 
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="#">Cecilia Vasquez</a>
-          </h3>
-          <p>Ejecutiva Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="#" class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/5.png" alt="Joseph Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue" href="https://www.linkedin.com/in/romina-vasquez-1444b737b" target="_blank">Romina
-              Vasquez</a>
-          </h3>
-          <p>Ejecutiva Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/romina-vasquez-1444b737b" target="_blank"
-                class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Perfil  -->
-        <div class="text-center text-gray-500 dark:text-gray-400">
-          <div class="metallic-border-red mx-auto mb-4 shadow-xl">
-            <img class="w-56 h-72 object-cover" src="img/13.png" alt="Neil Avatar">
-          </div>
-
-          <h3 class="mb-1 text-2xl font-bold tracking-tight text-[#142E85]">
-
-            <a class="metallic-blue"
-              href="https://www.linkedin.com/in/antonella-paredes-26348237a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-              target="_blank">Antonella Paredes</a>
-          </h3>
-          <p>Ejecutiva Comercial</p>
-          <ul class="flex justify-center mt-4 space-x-4">
-            <li>
-              <a href="https://www.linkedin.com/in/antonella-paredes-26348237a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                target="_blank" class="text-[#39569c] hover:text-gray-900 dark:hover:text-white">
-                <span class="[&>svg]:h-5 [&>svg]:w-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                    <path
-                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Servicios -->
-  <section id="servicios" style="scroll-margin-top: 30px;">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-[#BD2B2B] metallic-red">Diseñado para negocios
-          como el tuyo</h2>
-        <p class="mb-8 lg:mb-16 font-light text-center text-[#303030] sm:text-xl">En Netora, ofrecemos soluciones
-          tecnológicas innovadoras que impulsan el crecimiento de tu negocio, optimizan procesos y generan valor a largo
-          plazo.</p>
-      </div>
-      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-        <!-- Pricing Card -->
-        <style>
-          .metallic-text {
-            background: linear-gradient(120deg,
-                #ffffff 0%,
-                #d9d9d9 15%,
-                #a6a6a6 30%,
-                #f2f2f2 45%,
-                #808080 60%,
-                #d9d9d9 75%,
-                #ffffff 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s ease-in-out infinite;
-          }
-
-          @keyframes shine {
-            0% {
-              background-position: 200% 0%;
-            }
-
-            100% {
-              background-position: -200% 0%;
-            }
-          }
-        </style>
-
-
-        <style>
-          .metallic-card-red {
-            background: linear-gradient(135deg,
-                #ff6b6b 0%,
-                #BD2B2B 25%,
-                #7a1c1c 50%,
-                #BD2B2B 75%,
-                #ff6b6b 100%);
-            background-size: 200% 200%;
-            animation: metallicDiagonal 5s ease-in-out infinite;
-          }
-
-          @keyframes metallicDiagonal {
-            0% {
-              background-position: 0% 0%;
-            }
-
-            50% {
-              background-position: 100% 100%;
-            }
-
-            100% {
-              background-position: 0% 0%;
-            }
-          }
-        </style>
-        <style>
-          .metallic-card-blue {
-            background: linear-gradient(135deg,
-                #4b6fff 0%,
-                /* azul claro para brillo */
-                #142E85 25%,
-                /* azul principal */
-                #0b1a57 50%,
-                /* azul oscuro para profundidad */
-                #142E85 75%,
-                /* azul principal */
-                #4b6fff 100%
-                /* azul claro para brillo */
-              );
-            background-size: 200% 200%;
-            animation: metallicDiagonal 5s ease-in-out infinite;
-          }
-
-          @keyframes metallicDiagonal {
-            0% {
-              background-position: 0% 0%;
-            }
-
-            50% {
-              background-position: 100% 100%;
-            }
-
-            100% {
-              background-position: 0% 0%;
-            }
-          }
-        </style>
-
-
-
-        <div
-          class="metallic-card-red flex flex-col justify-center p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow xl:p-8">
-          <h3 class="mb-4 text-2xl font-semibold metallic-text">Internet Claro Empresas Digital</h3>
-          <p class="font-light sm:text-lg metallic-text"> Paquete integral que combina Internet con hasta 7 herramientas
-            digitales, ideal para impulsar la productividad de tu negocio. </p>
-          <div class="flex justify-center items-baseline my-8"> <span
-              class="mr-2 text-4xl font-extrabold metallic-text">Incluye</span> </div> <!-- Lista de herramientas -->
-          <ul role="list" class="mb-8 space-y-4 text-left">
-            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
-                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg> <span><span class="font-semibold">Claro Drive Negocio</span> – nube para guardar y compartir
-                archivos</span> </li>
-            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
-                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg> <span><span class="font-semibold">Claro Backup</span> – respaldo seguro de datos</span> </li>
-            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
-                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg> <span><span class="font-semibold">Email Empresas</span> – correos personalizados con dominio
-                corporativo</span> </li>
-            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
-                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg> <span><span class="font-semibold">Tienda Virtual</span> – página web para vender online con
-                facturación electrónica</span> </li>
-            <li class="flex items-center space-x-3 metallic-text"> <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]"
-                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg> <span><span class="font-semibold">Microsoft 365</span> – apps como Word, Excel, PowerPoint y
-                Teams</span> </li>
-          </ul> <a href="#contacto"
-            class="metallic-card-blue text-white hover:text-white bg-[#142E85] hover:bg-[#0F2261] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Solicitar Información </a>
-        </div>
-
-
-        <!-- Pricing Card -->
-
-
-        <div
-          class="metallic-card-red flex flex-col justify-center p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow xl:p-8">
-
-          <h3 class="mb-4 text-2xl font-semibold metallic-text">Factura Electrónica Web</h3>
-          <p class="font-light sm:text-lg metallic-text">
-            Servicio para emitir comprobantes electrónicos de manera ágil y segura, con planes flexibles para tu
-            negocio.
+        <!-- 1. Líneas móviles: 439 ventas, 3,700 líneas. The number one product. -->
+        <article class="card card-lg reveal" style="--i:0">
+          <span class="card-icon"><i class="ph ph-device-mobile" aria-hidden="true"></i></span>
+          <h3 class="h3">Líneas móviles</h3>
+          <p class="body">
+            Planes de negocio con voz y datos. Trae tus líneas de otro operador y sigue con
+            el mismo número.
           </p>
-
-          <div class="flex justify-center items-baseline my-8">
-            <span class="mr-2 text-4xl font-extrabold metallic-text">2 Planes</span>
+          <div class="card-tags">
+            <span class="tag">Portabilidad</span>
+            <span class="tag">Voz y datos</span>
+            <span class="tag">Líneas adicionales</span>
+            <span class="tag">Renovación de plan</span>
           </div>
+        </article>
 
-          <!-- Lista de planes -->
-          <ul role="list" class="mb-8 space-y-6 text-left">
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>
-                <span class="font-semibold">Plan Emprende</span> – hasta 2 puntos de emisión, 60 documentos y 5
-                usuarios.<br>
-                <span class="font-semibold">Precio:</span> S/ 29 mensuales (<span class="text-blue-500 font-bold">S/
-                  19</span>
-                para clientes Claro).
-              </span>
-            </li>
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>
-                <span class="font-semibold">Plan Avanza</span> – emisión ilimitada, usuarios múltiples, reportes y
-                tablero de indicadores.<br>
-                <span class="font-semibold">Precio:</span> S/ 65 mensuales (<span class="text-blue-500 font-bold">S/
-                  45</span>
-                para clientes Claro).
-              </span>
-            </li>
-          </ul>
-
-          <a href="#contacto"
-            class="metallic-card-blue text-white hover:text-white bg-[#142E85] hover:bg-[#0F2261] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Solicitar Información
-          </a>
-        </div>
-
-
-        <!-- Pricing Card -->
-        <div
-          class="metallic-card-red flex flex-col justify-center p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow xl:p-8">
-
-          <h3 class="mb-4 text-2xl font-semibold metallic-text">Claro Cloud Empresarial</h3>
-          <p class="font-light sm:text-lg metallic-text">
-            Solución en la nube para empresas con servicios completos y soporte especializado.
+        <!-- 2. Nube y correo: 2,703 licencias. Microsoft 365 is product number two. -->
+        <article class="card card-sm reveal" style="--i:1">
+          <span class="card-icon"><i class="ph ph-cloud" aria-hidden="true"></i></span>
+          <h3 class="h3">Nube y correo corporativo</h3>
+          <p class="body">
+            Microsoft 365 y Google Workspace facturados por Claro, en el mismo recibo que
+            el resto de tus servicios.
           </p>
-
-          <div class="flex justify-center items-baseline my-8">
-            <span class="mr-2 text-4xl font-extrabold metallic-text">Servicios Incluidos</span>
+          <div class="card-tags">
+            <span class="tag">Microsoft 365</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">Backup</span>
           </div>
+        </article>
 
-          <!-- Lista de características -->
-          <ul role="list" class="mb-8 space-y-4 text-left">
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>Cómputo, almacenamiento y redes</span>
-            </li>
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>Bases de datos: MySQL, PostgreSQL, MongoDB, Redis, etc.</span>
-            </li>
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>Kubernetes, seguridad y DevOps</span>
-            </li>
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>Big Data, Machine Learning y backups</span>
-            </li>
-            <li class="flex items-start space-x-3 metallic-text">
-              <svg class="flex-shrink-0 w-5 h-5 text-[#142E85]" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <span>Monitoreo y soporte técnico 24/7</span>
-            </li>
-          </ul>
+        <!-- 3. Internet fijo: FTTH is the most sold of this family. -->
+        <article class="card card-sm reveal" style="--i:2">
+          <span class="card-icon"><i class="ph ph-wifi-high" aria-hidden="true"></i></span>
+          <h3 class="h3">Internet para tu local</h3>
+          <p class="body">
+            Fibra óptica e internet dedicado, no compartido. Con soporte empresarial y
+            alguien que responde cuando se cae.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Fibra FTTH</span>
+            <span class="tag">Internet dedicado</span>
+            <span class="tag">RPV</span>
+          </div>
+        </article>
 
-          <a href="#contacto"
-            class="metallic-card-blue text-white hover:text-white bg-[#142E85] hover:bg-[#0F2261] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Solicitar información
-          </a>
-        </div>
+        <!-- 4. Servicios gestionados: where the long-term margin is. -->
+        <article class="card card-lg reveal" style="--i:3">
+          <span class="card-icon"><i class="ph ph-shield-check" aria-hidden="true"></i></span>
+          <h3 class="h3">Servicios gestionados</h3>
+          <p class="body">
+            Wifi, seguridad y redes que instalamos, monitoreamos y administramos por ti.
+            No solo te vendemos el equipo.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Wifi gestionado</span>
+            <span class="tag">Seguridad administrada</span>
+            <span class="tag">SD-WAN</span>
+            <span class="tag">Videovigilancia</span>
+          </div>
+        </article>
 
       </div>
-    </div>
-  </section>
 
-  <!-- Sección Contacto -->
-
-
-  <section id="contacto" style="scroll-margin-top: 30px;">
-    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-[#BD2B2B] metallic-red text-center w-full">
-        Contáctanos
-      </h2>
-
-
-      <style>
-        .glow {
-          text-shadow: 0 0 10px #ffffff, 0 0 1px #fff, 0 0 1px #fff;
-        }
-      </style>
-
-      <p class="mb-8 lg:mb-16 font-light text-center text-[#303030] sm:text-xl">
-        En Netora Management, apoyamos a tu empresa en la transformación digital.
-        Desde ciberseguridad, conectividad y productividad hasta soluciones como Claro Media, Claro Cloud y
-        Microsoft 365.
-        Si tienes alguna duda, problema técnico o quieres enviarnos tus comentarios, déjanos un mensaje y te
-        responderemos lo antes posible.
+      <p class="small reveal" style="margin-top:26px">
+        También tomamos proyectos a medida: desarrollo, analítica e IoT.
       </p>
+    </section>
 
-      <style>
-        .glow-form {
-          box-shadow: 0 0 15px #580000, 0 0 2px #580000, 0 0 2px #580000;
-        }
-      </style>
-
-      <form action="#" class="metallic-card-red bg-gradient-to-b from-[#BD2B2B] to-[#8B0000] p-6 rounded-lg glow-form">
-
-        <div>
-          <label for="email" class="block mb-2 text-sm font-medium text-[#D6D6D6]">Tu correo</label>
-          <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#8b0000] focus:border-[#8b0000] block w-full p-2.5">
+    <!-- =================================================================
+         REASONS. Numbered rows, no card chrome, on the soft band.
+         ============================================================== -->
+    <section class="section section-soft" id="nosotros">
+      <div class="shell">
+        <div class="section-head reveal">
+          <h2 class="h2">No te dejamos solo con el sistema de Claro</h2>
         </div>
 
-        <div>
-          <label for="subject" class="block mb-2 text-sm font-medium text-[#D6D6D6]">Asunto</label>
-          <input type="text" id="subject" placeholder="¿En qué podemos ayudarte?" required
-            class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-[#8b0000] focus:border-[#8b0000]">
+        <ol class="reasons">
+          <li class="reason reveal" style="--i:0">
+            <span class="reason-num tnum">01</span>
+            <div>
+              <h3>Somos distribuidor autorizado</h3>
+              <p>Contrato firmado con América Móvil Perú. No somos un revendedor: nuestros expedientes pasan la auditoría de Claro.</p>
+            </div>
+          </li>
+          <li class="reason reveal" style="--i:1">
+            <span class="reason-num tnum">02</span>
+            <div>
+              <h3>Tenemos mesa de control propia</h3>
+              <p>Un equipo que sigue tu pedido desde el registro hasta la instalación. Si algo se traba, alguien lo está mirando.</p>
+            </div>
+          </li>
+          <li class="reason reveal" style="--i:2">
+            <span class="reason-num tnum">03</span>
+            <div>
+              <h3>Un solo contacto</h3>
+              <p>Tu consultor no desaparece después de la firma. Es el mismo para renovar, crecer o resolver.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PROCESS. Four steps. The heading is the action itself.
+         ============================================================== -->
+    <section class="shell section" id="como-funciona">
+      <div class="section-head reveal">
+        <h2 class="h2">Cómo funciona</h2>
+      </div>
+
+      <ol class="process">
+        <li class="step reveal" style="--i:0">
+          <span class="step-dot" aria-hidden="true"></span>
+          <span class="step-num tnum">01</span>
+          <h3>Nos cuentas qué necesitas</h3>
+          <p>Un formulario de un minuto. Sin compromiso.</p>
+        </li>
+        <li class="step reveal" style="--i:1">
+          <span class="step-dot" aria-hidden="true"></span>
+          <span class="step-num tnum">02</span>
+          <h3>Un consultor arma la propuesta</h3>
+          <p>Con los planes que de verdad le sirven a tu operación, no el más caro.</p>
+        </li>
+        <li class="step reveal" style="--i:2">
+          <span class="step-dot" aria-hidden="true"></span>
+          <span class="step-num tnum">03</span>
+          <h3>Nosotros hacemos el trámite</h3>
+          <p>Registro, expediente y seguimiento con Claro. Tú firmas y esperas.</p>
+        </li>
+        <li class="step reveal" style="--i:3">
+          <span class="step-dot" aria-hidden="true"></span>
+          <span class="step-num tnum">04</span>
+          <h3>Te acompañamos después</h3>
+          <p>Para crecer, renovar o resolver.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =================================================================
+         TEAM. Real photographs of the actual team, which is exactly what
+         Contexto asks for instead of stock call-center imagery.
+         ============================================================== -->
+    <section class="section section-soft" id="equipo">
+      <div class="shell">
+        <div class="section-head reveal">
+          <h2 class="h2">Las personas que responden</h2>
+          <p class="body">
+            No tenemos call center. A cada cuenta le asignamos un consultor con nombre.
+          </p>
         </div>
 
-        <div>
-          <label for="message" class="block mb-2 text-sm font-medium text-[#D6D6D6]">Mensaje</label>
-          <textarea id="message" rows="6" placeholder="Escribe tu mensaje aquí..." required
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-[#8b0000] focus:border-[#8b0000]"></textarea>
+        <article class="lead-person person reveal">
+          <div class="person-photo" style="margin-bottom:0">
+            <img src="img/Julio.png" alt="Julio Silva, Gerente General de Netora"
+              width="520" height="693" loading="lazy" decoding="async">
+          </div>
+          <div>
+            <h3 class="h3">Julio Silva</h3>
+            <p class="person-role" style="font-size:0.95rem">Gerente General</p>
+            <p class="body" style="margin-top:14px">
+              Dirige Netora y nuestra relación con Claro Empresas. Más de dos décadas
+              vendiendo y sosteniendo infraestructura de telecomunicaciones en el Perú.
+            </p>
+            <a class="person-link" href="https://www.linkedin.com/in/julio-silva-chamorro-b44a51147"
+              target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </div>
+        </article>
+
+        <div class="team-grid">
+
+          <article class="person reveal" style="--i:0">
+            <div class="person-photo">
+              <img src="img/2.png" alt="Erick Bravo, Gerente Comercial" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Erick Bravo</h3>
+            <p class="person-role">Gerente Comercial</p>
+            <a class="person-link" href="https://www.linkedin.com/in/erick-bravo-088a76126" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:1">
+            <div class="person-photo">
+              <img src="img/3.png" alt="Bronella Silva, Back Office" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Bronella Silva</h3>
+            <p class="person-role">Back Office</p>
+            <a class="person-link" href="https://www.linkedin.com/in/bronella-silva-55a47130b" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:2">
+            <div class="person-photo">
+              <img src="img/4.png" alt="Andrea Guevara, Especialista de Marketing" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Andrea Guevara</h3>
+            <p class="person-role">Especialista de Marketing</p>
+            <a class="person-link" href="https://www.linkedin.com/in/andrea-camila-guevara-rios-433314286" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:3">
+            <div class="person-photo">
+              <img src="img/10.png" alt="Evelyn Gonzales, Supervisora de Ventas" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Evelyn Gonzales</h3>
+            <p class="person-role">Supervisora de Ventas</p>
+            <a class="person-link" href="https://www.linkedin.com/in/evelyn-g-939024176/" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:0">
+            <div class="person-photo">
+              <img src="img/6.png" alt="Yesica Valqui, Consultora Corporativa" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Yesica Valqui</h3>
+            <p class="person-role">Consultora Corporativa</p>
+            <a class="person-link" href="https://www.linkedin.com/in/yesica-valqui-9364561aa" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:1">
+            <div class="person-photo">
+              <img src="img/7.png" alt="Percy Campos, Consultor Corporativo" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Percy Campos</h3>
+            <p class="person-role">Consultor Corporativo</p>
+            <a class="person-link" href="https://www.linkedin.com/in/percy-jairo-campos-mavila-b33523146" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:2">
+            <div class="person-photo">
+              <img src="img/8.png" alt="Sandra Palacios, Consultora Corporativa" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Sandra Palacios</h3>
+            <p class="person-role">Consultora Corporativa</p>
+            <a class="person-link" href="https://www.linkedin.com/in/sandra-palacios-24123b37b" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:3">
+            <div class="person-photo">
+              <img src="img/9.png" alt="Yubitza Cruz, Consultora Corporativa" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Yubitza Cruz</h3>
+            <p class="person-role">Consultora Corporativa</p>
+            <a class="person-link" href="https://www.linkedin.com/in/yubitza-cruz-luna-58b55037b" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:0">
+            <div class="person-photo">
+              <img src="img/12.png" alt="Cecilia Vasquez, Consultora Corporativa" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Cecilia Vasquez</h3>
+            <p class="person-role">Consultora Corporativa</p>
+          </article>
+
+          <article class="person reveal" style="--i:1">
+            <div class="person-photo">
+              <img src="img/5.png" alt="Romina Vasquez, Consultora Corporativa" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Romina Vasquez</h3>
+            <p class="person-role">Consultora Corporativa</p>
+            <a class="person-link" href="https://www.linkedin.com/in/romina-vasquez-1444b737b" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
+          <article class="person reveal" style="--i:2">
+            <div class="person-photo">
+              <img src="img/13.png" alt="Antonella Paredes, Recursos Humanos" width="400" height="533" loading="lazy" decoding="async">
+            </div>
+            <h3 class="person-name">Antonella Paredes</h3>
+            <p class="person-role">Recursos Humanos</p>
+            <a class="person-link" href="https://www.linkedin.com/in/antonella-paredes-26348237a/" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+          </article>
+
         </div>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
-          <style>
-            @keyframes glowAnimation {
-              0% {
-                box-shadow: 0 0 5px #c72d2d, 0 0 10px #c72d2d, 0 0 15px #c72d2d;
-              }
+      </div>
+    </section>
 
-              50% {
-                box-shadow: 0 0 15px #c72d2d, 0 0 25px #c72d2d, 0 0 35px #c72d2d;
-              }
-
-              100% {
-                box-shadow: 0 0 5px #c72d2d, 0 0 10px #c72d2d, 0 0 15px #c72d2d;
-              }
-            }
-
-            .glow-btn {
-              animation: glowAnimation 1.5s infinite ease-in-out;
-            }
-          </style>
-
-          <button type="submit"
-            class=" metallic-card-red py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#A12424] hover:bg-[#c91515] transition glow-btn">
-            Enviar mensaje
-          </button>
-          <!-- Separador -->
-          <span class="text-[#D6D6D6] font-bold text-lg">O</span>
-
-
-
-          <!-- Botón de WhatsApp -->
-          <style>
-            .metallic-card-green {
-              background: linear-gradient(135deg,
-                  #6ee7b7 0%,
-                  #16a34a 25%,
-                  #065f46 50%,
-                  #16a34a 75%,
-                  #6ee7b7 100%);
-              background-size: 200% 200%;
-              animation: metallicDiagonalGreen 7s ease-in-out infinite;
-            }
-
-            @keyframes metallicDiagonalGreen {
-              0% {
-                background-position: 0% 0%;
-              }
-
-              50% {
-                background-position: 100% 100%;
-              }
-
-              100% {
-                background-position: 0% 0%;
-              }
-            }
-          </style>
-
-
-          <!-- Botón de WhatsApp -->
-          <a href="https://wa.me/+51997086750" target="_blank"
-            class="metallic-card-green flex-1 flex items-center justify-center gap-2 py-3 px-5 text-sm font-medium text-white rounded-lg transition">
-            <img src="img/watsappicon.png" alt="WhatsApp" class="w-10 h-10">
-            Contactar por WhatsApp
+    <!-- =================================================================
+         CLOSING CTA. The high-contrast counterpoint on a light page.
+         ============================================================== -->
+    <section class="shell section">
+      <div class="cta-block reveal">
+        <h2 class="h2">El internet de tu empresa no puede caerse un martes</h2>
+        <p>
+          Cuéntanos qué necesitas conectar. Un consultor te contacta el mismo día hábil.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-invert" href="#contacto">Quiero una cotización</a>
+          <a class="btn btn-ghost-invert" href="https://wa.me/51997086750" target="_blank" rel="noopener">
+            <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribir por WhatsApp
           </a>
+        </div>
+      </div>
+    </section>
 
+    <!-- =================================================================
+         CONTACT. Fields follow Contexto/06-copy-sugerido.md. The names
+         email / subject / message are unchanged from the previous site
+         so the Formspree inbox keeps working.
+         ============================================================== -->
+    <section class="shell section" id="contacto" style="padding-top:0">
+      <div class="contact">
+
+        <div class="reveal">
+          <h2 class="h2">Cuéntanos qué necesita tu empresa</h2>
+          <p class="body" style="margin-top:16px">
+            Un consultor te contacta el mismo día hábil, con una propuesta al tamaño de tu
+            operación.
+          </p>
+
+          <div class="contact-facts">
+            <div class="fact">
+              <span class="fact-key"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>WhatsApp</span>
+              <span class="fact-val tnum">+51 997 086 750</span>
+            </div>
+            <div class="fact">
+              <span class="fact-key"><i class="ph ph-clock" aria-hidden="true"></i>Horario</span>
+              <span class="fact-val tnum">Lun a Vie, 9:00 a 18:30</span>
+            </div>
+            <div class="fact">
+              <span class="fact-key"><i class="ph ph-map-pin" aria-hidden="true"></i>Cobertura</span>
+              <span class="fact-val">Lima y Centro</span>
+            </div>
+          </div>
         </div>
 
-      </form>
-    </div>
-  </section>
+        <div class="form-panel reveal">
+          <form id="contactForm" class="form-grid" novalidate>
 
+            <div class="form-row">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input class="control" id="nombre" name="nombre" type="text" autocomplete="name"
+                  placeholder="Ana Torres" required>
+                <span class="field-error" data-error-for="nombre">Escribe tu nombre.</span>
+              </div>
 
-  <!-- Scripts -->
-  <script src="js/script.js"></script>
-  <script src="https://unpkg.com/flowbite@2.5.1/dist/flowbite.min.js"></script>
+              <div class="field">
+                <label for="empresa">Empresa</label>
+                <input class="control" id="empresa" name="empresa" type="text" autocomplete="organization"
+                  placeholder="Constructora Lima" required>
+                <span class="field-error" data-error-for="empresa">Escribe el nombre de tu empresa.</span>
+              </div>
+            </div>
 
-</body>
-<!-- Footer -->
-<footer class="bg-[#BD2B2B] border-gray-200">
-  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-    <div class="md:flex md:justify-between">
-      <div class="mb-6 md:mb-0">
-        <a href="" class="flex items-center">
-          <img src="img/LogoNetoraOnly.png" class="h-10" alt="Netora Logo" />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap text-white metallic-blue">NETORA</span>
-        </a>
+            <div class="form-row">
+              <div class="field">
+                <label for="ruc">RUC</label>
+                <input class="control tnum" id="ruc" name="ruc" type="text" inputmode="numeric"
+                  maxlength="11" placeholder="20613806521" required>
+                <span class="field-error" data-error-for="ruc">El RUC tiene 11 dígitos.</span>
+              </div>
+
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input class="control tnum" id="telefono" name="telefono" type="tel" autocomplete="tel"
+                  placeholder="997 086 750" required>
+                <span class="field-error" data-error-for="telefono">Ingresa un teléfono de contacto.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Correo</label>
+              <input class="control" id="email" name="email" type="email" autocomplete="email"
+                placeholder="ana@empresa.pe" required>
+              <span class="field-error" data-error-for="email">Ingresa un correo válido.</span>
+            </div>
+
+            <div class="field">
+              <label for="subject">¿Qué necesitas?</label>
+              <select class="control" id="subject" name="subject">
+                <option>Líneas móviles</option>
+                <option>Internet para mi local</option>
+                <option>Nube y correo corporativo</option>
+                <option>Servicios gestionados</option>
+                <option>No estoy seguro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Comentario <span class="opt">(opcional)</span></label>
+              <textarea class="control" id="message" name="message" rows="4"
+                placeholder="Cuántas sedes, cuántos usuarios y qué necesitas resolver."></textarea>
+            </div>
+
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+            <!-- Ley 29733: the person must be told what their data is for. -->
+            <p class="form-legal">
+              Tus datos se usan solo para contactarte. No los compartimos con terceros.
+            </p>
+
+            <div class="form-foot">
+              <button class="btn btn-primary" type="submit" id="formSubmit">
+                <span data-label>Enviar</span>
+              </button>
+              <span class="small">Te respondemos el mismo día hábil.</span>
+            </div>
+
+          </form>
+        </div>
+
       </div>
-      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+    </section>
+
+  </main>
+
+  <!-- ===================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer-top">
         <div>
-          <h2 class="mb-6 text-sm font-semibold  uppercase text-white">Síguenos</h2>
-          <ul class="text-gray-400 font-medium">
-            <li class="mb-4">
-              <a href="https://www.linkedin.com/company/netora-management" target="_blank"
-                class="hover:underline ">Linkedin</a>
-            </li>
-            <li class="mb-4">
-              <a href="https://www.instagram.com/netora_management/" target="_blank"
-                class="hover:underline ">Instagram</a>
-            </li>
-            <li class="mb-4">
-              <a href="https://www.facebook.com/profile.php?id=61572427350703" target="_blank"
-                class="hover:underline ">Facebook</a>
-            </li>
-            <li class="mb-4">
-              <a href="https://www.tiktok.com/@netora.management" target="_blank" class="hover:underline ">Tiktok</a>
-            </li>
-          </ul>
+          <a class="brand" href="#top" aria-label="Netora, inicio">
+            <img src="img/LogoNetoraOnly.png" alt="" width="30" height="30">
+            <span class="brand-word" style="font-size:1.25rem">Netora</span>
+          </a>
+          <p class="footer-legal">
+            Netora S.R.L. <br>
+            RUC 20613806521 <br>
+            Lima, Perú <br>
+            Distribuidor autorizado de Claro Empresas
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Secciones</h2>
+          <nav class="footer-list" aria-label="Enlaces del pie de página">
+            <a href="#servicios">Servicios</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#equipo">Equipo</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Síguenos</h2>
+          <div class="footer-list">
+            <a href="https://www.linkedin.com/company/netora-management" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+            <a href="https://www.instagram.com/netora_management/" target="_blank" rel="noopener">
+              <i class="ph ph-instagram-logo" aria-hidden="true"></i>Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61572427350703" target="_blank" rel="noopener">
+              <i class="ph ph-facebook-logo" aria-hidden="true"></i>Facebook
+            </a>
+            <a href="https://www.tiktok.com/@netora.management" target="_blank" rel="noopener">
+              <i class="ph ph-tiktok-logo" aria-hidden="true"></i>TikTok
+            </a>
+          </div>
         </div>
       </div>
+
+      <p class="footer-bottom">© 2026 Netora S.R.L. Todos los derechos reservados.</p>
     </div>
-    <hr class="my-6 border-[#FFFFFF] sm:mx-auto lg:my-8" />
+  </footer>
 
+  <a class="wa-float" href="https://wa.me/51997086750" target="_blank" rel="noopener"
+    aria-label="Escribir por WhatsApp">
+    <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+  </a>
 
-
-
-
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <span class="text-sm  sm:text-center text-gray-400">© 2025 <a href="https://flowbite.com/"
-          class="hover:underline">Netora Management™</a>. Todos los derechos reservados.
-      </span>
-      <div class="flex mt-4 sm:justify-center sm:mt-0">
-        <a href="https://www.facebook.com/profile.php?id=61572427350703" target="_blank"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-          <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-            viewBox="0 0 8 19">
-            <path fill-rule="evenodd"
-              d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-              clip-rule="evenodd" />
-          </svg>
-          <span class="sr-only">Facebook page</span>
-        </a>
-        <a href="https://www.instagram.com/netora_management/" target="_blank"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-          <span class="[&>svg]:h-5 [&>svg]:w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-              <path
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-            </svg>
-          </span>
-        </a>
-        <a href="https://www.linkedin.com/company/netora-management" target="_blank"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-          <span class="[&>svg]:h-5 [&>svg]:w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-              <path
-                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-            </svg>
-          </span>
-        </a>
-        <a href="https://www.tiktok.com/@netora.management" target="_blank"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-          <!-- TikTok -->
-          <span class="[&>svg]:h-5 [&>svg]:w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
-              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-              <path
-                d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
-            </svg>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+  <script src="js/script.js" defer></script>
+</body>
 
 </html>
