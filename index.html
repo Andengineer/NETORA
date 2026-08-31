@@ -8,7 +8,7 @@
 
   <title>Netora | Telefonía, internet y nube para tu empresa</title>
   <meta name="description"
-    content="Distribuidor autorizado de Claro Empresas en Lima. Líneas móviles, internet dedicado, Microsoft 365 y servicios gestionados, en una sola factura. Un consultor te acompaña.">
+    content="Líneas móviles, internet dedicado, Microsoft 365 y servicios gestionados para empresas peruanas. Aliado autorizado de Claro Empresas, con un consultor asignado a tu cuenta.">
 
   <link rel="icon" type="image/png" href="img/LogoNetoraOnly.png">
   <link rel="canonical" href="https://netoramanagement.org/">
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://netoramanagement.org/">
   <meta property="og:title" content="Netora | Telefonía, internet y nube para tu empresa">
   <meta property="og:description"
-    content="Distribuidor autorizado de Claro Empresas en Lima. Un consultor te arma el plan, hace el trámite y te acompaña.">
+    content="Servicios corporativos de telefonía, internet y nube. Te ayudamos a elegir el plan, gestionamos el trámite y te acompañamos durante toda la implementación.">
   <meta property="og:image" content="https://netoramanagement.org/img/Netora.png">
   <meta property="og:locale" content="es_PE">
 
@@ -32,7 +32,7 @@
   <!-- Phosphor Icons. One icon family for the whole page. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
-  <link rel="stylesheet" href="css/netora.css?v=2">
+  <link rel="stylesheet" href="css/netora.css?v=3">
 
   <!-- Reveal-on-scroll hides content until it animates in, so it must never
        be able to strand the page. The js-reveal class is added only when
@@ -55,6 +55,10 @@
 
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Scroll progress. Driven entirely by CSS scroll-timeline where the
+       browser supports it, so it costs no JavaScript. -->
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ===================================================================
        HEADER. Single row at desktop, 68px tall, collapses under 900px.
@@ -90,20 +94,16 @@
          ============================================================== -->
     <section class="shell hero" id="top">
       <div class="hero-copy">
-        <span class="eyebrow" style="--i:0">
-          <i class="ph ph-seal-check" aria-hidden="true"></i>Distribuidor autorizado de Claro Empresas en Lima
-        </span>
-
-        <h1 class="display" style="--i:1">
+        <h1 class="display" style="--i:0">
           Telefonía, internet y nube para <span class="mark">tu empresa</span>
         </h1>
 
-        <p class="lead" style="--i:2">
-          Un consultor te arma el plan, hace el trámite con Claro y te acompaña hasta que
-          todo está funcionando.
+        <p class="lead" style="--i:1">
+          Te ayudamos a elegir el plan, gestionamos el trámite y te acompañamos durante
+          toda la implementación.
         </p>
 
-        <div class="hero-actions" style="--i:3">
+        <div class="hero-actions" style="--i:2">
           <a class="btn btn-primary" href="#contacto">Quiero una cotización</a>
           <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
         </div>
@@ -122,24 +122,24 @@
     <section class="section-soft" style="padding-block:clamp(40px,5vw,60px)">
       <div class="shell stat-grid">
         <div class="stat reveal" style="--i:0">
-          <span class="stat-value tnum">326</span>
+          <span class="stat-value tnum" data-count-to="326">326</span>
           <span class="stat-label">Empresas en cartera</span>
           <span class="stat-note">Negocios, mayores y corporativas</span>
         </div>
         <div class="stat reveal" style="--i:1">
-          <span class="stat-value tnum">+6,500</span>
+          <span class="stat-value tnum" data-count-to="6500" data-count-prefix="+" data-count-group="1">+6,500</span>
           <span class="stat-label">Servicios activados en 2026</span>
           <span class="stat-note">Líneas, licencias y enlaces</span>
         </div>
         <div class="stat reveal" style="--i:2">
-          <span class="stat-value tnum">10</span>
+          <span class="stat-value tnum" data-count-to="10">10</span>
           <span class="stat-label">Consultores corporativos</span>
           <span class="stat-note">Equipo de 22 personas en total</span>
         </div>
         <div class="stat reveal" style="--i:3">
           <!-- Near-black rather than brand red, so the one figure Claro
                itself certifies separates from the three red ones. -->
-          <span class="stat-value tnum is-accent">132 %</span>
+          <span class="stat-value tnum is-accent" data-count-to="132" data-count-suffix=" %">132 %</span>
           <span class="stat-label">Cumplimiento de cuota Claro</span>
           <span class="stat-note">Liquidación oficial, julio 2026</span>
         </div>
@@ -153,10 +153,10 @@
          ============================================================== -->
     <section class="shell section" id="servicios">
       <div class="section-head reveal">
-        <h2 class="h2">Todo lo que tu empresa necesita, en una sola factura</h2>
+        <h2 class="h2">Servicios corporativos para toda tu operación</h2>
         <p class="body">
-          Las líneas, el internet y el correo llegan en el mismo recibo de Claro, con un
-          solo contacto para todo.
+          Un solo proveedor y un solo consultor para las líneas, el internet, la nube y la
+          seguridad de tu empresa.
         </p>
       </div>
 
@@ -237,7 +237,7 @@
     <section class="section section-soft" id="nosotros">
       <div class="shell">
         <div class="section-head reveal">
-          <h2 class="h2">No te dejamos solo con el sistema de Claro</h2>
+          <h2 class="h2">Por qué las empresas nos eligen</h2>
         </div>
 
         <ol class="reasons">
@@ -245,21 +245,21 @@
             <span class="reason-num tnum">01</span>
             <div>
               <h3>Somos distribuidor autorizado</h3>
-              <p>Contrato firmado con América Móvil Perú. No somos un revendedor: nuestros expedientes pasan la auditoría de Claro.</p>
+              <p>Contrato firmado con América Móvil Perú, con acceso directo a los planes corporativos y a las condiciones comerciales de Claro Empresas.</p>
             </div>
           </li>
           <li class="reason reveal" style="--i:1">
             <span class="reason-num tnum">02</span>
             <div>
-              <h3>Tenemos mesa de control propia</h3>
-              <p>Un equipo que sigue tu pedido desde el registro hasta la instalación. Si algo se traba, alguien lo está mirando.</p>
+              <h3>Seguimiento de principio a fin</h3>
+              <p>Un equipo propio acompaña tu pedido desde el registro hasta la instalación, y te mantiene informado en cada etapa.</p>
             </div>
           </li>
           <li class="reason reveal" style="--i:2">
             <span class="reason-num tnum">03</span>
             <div>
               <h3>Un solo contacto</h3>
-              <p>Tu consultor no desaparece después de la firma. Es el mismo para renovar, crecer o resolver.</p>
+              <p>El mismo consultor te atiende después de la firma, para renovar, ampliar o resolver cualquier consulta.</p>
             </div>
           </li>
         </ol>
@@ -291,7 +291,7 @@
           <span class="step-dot" aria-hidden="true"></span>
           <span class="step-num tnum">03</span>
           <h3>Nosotros hacemos el trámite</h3>
-          <p>Registro, expediente y seguimiento con Claro. Tú firmas y esperas.</p>
+          <p>Registro, expediente y seguimiento. Nos encargamos de toda la gestión.</p>
         </li>
         <li class="step reveal" style="--i:3">
           <span class="step-dot" aria-hidden="true"></span>
@@ -309,9 +309,10 @@
     <section class="section section-soft" id="equipo">
       <div class="shell">
         <div class="section-head reveal">
-          <h2 class="h2">Las personas que responden</h2>
+          <h2 class="h2">Un equipo de consultores para tu empresa</h2>
           <p class="body">
-            No tenemos call center. A cada cuenta le asignamos un consultor con nombre.
+            Asignamos un consultor a cada cuenta, disponible por teléfono y correo para
+            acompañarte en todo el proceso.
           </p>
         </div>
 
@@ -331,6 +332,9 @@
               target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Julio Silva">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </div>
         </article>
 
@@ -345,6 +349,9 @@
             <a class="person-link" href="https://www.linkedin.com/in/erick-bravo-088a76126" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Erick Bravo">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:1">
@@ -355,6 +362,9 @@
             <p class="person-role">Back Office</p>
             <a class="person-link" href="https://www.linkedin.com/in/bronella-silva-55a47130b" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Bronella Silva">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
             </a>
           </article>
 
@@ -367,6 +377,9 @@
             <a class="person-link" href="https://www.linkedin.com/in/andrea-camila-guevara-rios-433314286" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Andrea Guevara">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:3">
@@ -377,6 +390,9 @@
             <p class="person-role">Supervisora de Ventas</p>
             <a class="person-link" href="https://www.linkedin.com/in/evelyn-g-939024176/" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Evelyn Gonzales">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
             </a>
           </article>
 
@@ -389,6 +405,9 @@
             <a class="person-link" href="https://www.linkedin.com/in/yesica-valqui-9364561aa" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Yesica Valqui">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:1">
@@ -399,6 +418,9 @@
             <p class="person-role">Consultor Corporativo</p>
             <a class="person-link" href="https://www.linkedin.com/in/percy-jairo-campos-mavila-b33523146" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Percy Campos">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
             </a>
           </article>
 
@@ -411,6 +433,9 @@
             <a class="person-link" href="https://www.linkedin.com/in/sandra-palacios-24123b37b" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Sandra Palacios">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:3">
@@ -422,6 +447,9 @@
             <a class="person-link" href="https://www.linkedin.com/in/yubitza-cruz-luna-58b55037b" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Yubitza Cruz">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:0">
@@ -430,6 +458,9 @@
             </div>
             <h3 class="person-name">Cecilia Vasquez</h3>
             <p class="person-role">Consultora Corporativa</p>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Cecilia Vasquez">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:1">
@@ -441,6 +472,9 @@
             <a class="person-link" href="https://www.linkedin.com/in/romina-vasquez-1444b737b" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
             </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Romina Vasquez">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
+            </a>
           </article>
 
           <article class="person reveal" style="--i:2">
@@ -451,6 +485,9 @@
             <p class="person-role">Recursos Humanos</p>
             <a class="person-link" href="https://www.linkedin.com/in/antonella-paredes-26348237a/" target="_blank" rel="noopener">
               <i class="ph ph-linkedin-logo" aria-hidden="true"></i>LinkedIn
+            </a>
+            <a class="person-link person-mail" href="mailto:" aria-label="Escribir a Antonella Paredes">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>Correo
             </a>
           </article>
 
@@ -646,7 +683,7 @@
     <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
   </a>
 
-  <script src="js/script.js?v=2" defer></script>
+  <script src="js/script.js?v=3" defer></script>
 </body>
 
 </html>

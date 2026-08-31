@@ -5,7 +5,9 @@
      1. Mobile navigation panel
      2. Sticky-header border, driven by a sentinel (not a scroll listener)
      3. Scroll reveal via IntersectionObserver
-     4. Contact form with real validation and real submit states
+     4. Section colour tone as bands enter and leave the viewport
+     5. Count-up on the stat figures
+     6. Contact form with real validation and real submit states
 
    Deliberately NOT used anywhere in this file:
      - window.addEventListener('scroll')  -> fires every frame, janks on mobile
@@ -113,7 +115,86 @@
   }
 
   /* -------------------------------------------------------------------------
-     4. CONTACT FORM
+     4. SECTION TONE
+     Toggles the soft tint on banded sections as they enter and leave view.
+     Unlike the reveal this stays observed, because the colour has to move
+     back when the section leaves. Only background-color transitions, which
+     the compositor handles without layout work.
+     Reason for this animation: it turns hard section edges into one
+     continuous colour move while scrolling.
+     ---------------------------------------------------------------------- */
+  function initTone() {
+    var bands = document.querySelectorAll('.section-soft, .cta-block');
+    if (!bands.length || !hasObserver) return;
+
+    if (prefersReducedMotion) {
+      Array.prototype.forEach.call(bands, function (el) {
+        el.classList.add(el.classList.contains('cta-block') ? 'is-in' : 'is-toned');
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var cls = entry.target.classList.contains('cta-block') ? 'is-in' : 'is-toned';
+        entry.target.classList.toggle(cls, entry.isIntersecting);
+      });
+    }, { rootMargin: '-8% 0px -8% 0px', threshold: 0 });
+
+    Array.prototype.forEach.call(bands, function (el) { observer.observe(el); });
+  }
+
+  /* -------------------------------------------------------------------------
+     5. STAT COUNT-UP
+     The final value is already in the HTML, so without JS the correct number
+     is what renders. This only animates from zero once, when the band first
+     comes into view.
+     Reason for this animation: it puts weight on the proof figures, which
+     are the strongest thing on the page.
+     ---------------------------------------------------------------------- */
+  function initCount() {
+    var nodes = document.querySelectorAll('[data-count-to]');
+    if (!nodes.length || !hasObserver || prefersReducedMotion) return;
+
+    function render(el, value) {
+      var group = el.getAttribute('data-count-group');
+      var text = group ? value.toLocaleString('es-PE') : String(value);
+      el.textContent = (el.getAttribute('data-count-prefix') || '') + text +
+                       (el.getAttribute('data-count-suffix') || '');
+    }
+
+    function run(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      if (isNaN(target)) return;
+      var duration = 1100;
+      var started = null;
+      el.setAttribute('data-counting', '');
+
+      function frame(now) {
+        if (started === null) started = now;
+        var t = Math.min((now - started) / duration, 1);
+        // easeOutCubic: fast first, settles on the number
+        var eased = 1 - Math.pow(1 - t, 3);
+        render(el, Math.round(target * eased));
+        if (t < 1) requestAnimationFrame(frame);
+        else el.removeAttribute('data-counting');
+      }
+      requestAnimationFrame(frame);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        run(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+
+    Array.prototype.forEach.call(nodes, function (el) { observer.observe(el); });
+  }
+
+  /* -------------------------------------------------------------------------
+     6. CONTACT FORM
      Posts to the same Formspree endpoint the previous site used, with the
      email / subject / message field names unchanged, so nothing downstream
      breaks. The extra fields (nombre, empresa, ruc, telefono) ride along.
@@ -229,5 +310,7 @@
   initNav();
   initHeader();
   initReveal();
+  initTone();
+  initCount();
   initForm();
 })();

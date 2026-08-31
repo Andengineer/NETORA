@@ -138,21 +138,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .body  { font-size: 1rem; color: var(--text-muted); line-height: 1.68; max-width: 64ch; }
 .small { font-size: 0.875rem; color: var(--text-dim); line-height: 1.6; }
 
-/* The page's only eyebrow. Budget: 1 instance (hero).
-   It carries the credential that answers the visitor's first doubt, so it
-   earns its place at the top rather than being decoration. */
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.78rem; font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--primary);
-  background: var(--primary-soft);
-  border: 1px solid var(--primary-line);
-  border-radius: var(--r-pill);
-  padding: 8px 16px;
-}
-.eyebrow i { font-size: 1.05rem; }
-
 /* The headline underline. Draws itself once, after the headline settles. */
 .mark { position: relative; white-space: nowrap; }
 .mark::after {
@@ -307,6 +292,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 /* The figure Claro itself certifies gets the near-black treatment so it
    separates from the three brand-red figures beside it. */
 .stat-value.is-accent { color: var(--text); }
+/* While counting, the value is mid-animation; tabular figures already keep
+   the width stable so the row never reflows. */
+.stat-value[data-counting] { font-variant-numeric: tabular-nums; }
 .stat-label { font-size: 0.9rem; font-weight: 500; }
 .stat-note  { font-size: 0.8rem; color: var(--text-dim); }
 
@@ -441,6 +429,11 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   transition: color 0.2s var(--ease);
 }
 .person-link:hover { color: var(--primary); }
+/* Each consultant has an email slot ready. While href is still the empty
+   "mailto:" placeholder the link is hidden, so visitors never meet a dead
+   link; filling in an address makes it appear automatically. */
+.person-mail[href="mailto:"] { display: none; }
+.person-link + .person-link { margin-left: 14px; }
 
 /* ---------------------------------------------------------------------------
    CLOSING CTA - the page's one deliberate dark block, the high-contrast
@@ -566,6 +559,52 @@ select.control {
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 .wa-float:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 28px rgba(28, 20, 22, 0.4); }
+
+/* ---------------------------------------------------------------------------
+   SCROLL PROGRESS
+   A brand-red rule that fills as the page scrolls. Driven by a CSS scroll
+   timeline, so there is no JavaScript and no per-frame work. Browsers
+   without scroll-timeline simply never show it.
+   ------------------------------------------------------------------------ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 60;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+  transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: progress linear both;
+      animation-timeline: scroll(root block);
+    }
+    @keyframes progress { to { transform: scaleX(1); } }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   SECTION TONE
+   The banded sections fade between white and the soft tint as they enter and
+   leave the viewport, so scrolling reads as one continuous colour move
+   instead of hard edges. Only background-color animates.
+   ------------------------------------------------------------------------ */
+.section-soft {
+  background: var(--bg);
+  transition: background-color 0.9s var(--ease), border-color 0.9s var(--ease);
+  border-block-color: transparent;
+}
+.section-soft.is-toned {
+  background: var(--bg-soft);
+  border-block-color: var(--border-soft);
+}
+/* The closing block deepens slightly as it comes into view. */
+.cta-block { transition: box-shadow 0.9s var(--ease), transform 0.9s var(--ease); }
+.cta-block.is-in { box-shadow: var(--shadow-lg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-soft { background: var(--bg-soft); border-block-color: var(--border-soft); }
+}
 
 /* ---------------------------------------------------------------------------
    MOTION
