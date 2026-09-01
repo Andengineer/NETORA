@@ -281,7 +281,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 /* ---------------------------------------------------------------------------
    STAT BAND - real CRM figures, plain layout, no card wrappers.
    ------------------------------------------------------------------------ */
-.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(22px, 3vw, 40px); }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(22px, 3vw, 40px); }
 .stat { display: flex; flex-direction: column; gap: 5px; }
 .stat-value {
   font-family: var(--font-display);
@@ -289,9 +289,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   font-weight: 600; line-height: 1; letter-spacing: -0.03em;
   color: var(--primary);
 }
-/* The figure Claro itself certifies gets the near-black treatment so it
-   separates from the three brand-red figures beside it. */
-.stat-value.is-accent { color: var(--text); }
 /* While counting, the value is mid-animation; tabular figures already keep
    the width stable so the row never reflows. */
 .stat-value[data-counting] { font-variant-numeric: tabular-nums; }
@@ -689,8 +686,6 @@ select.control {
               border-color 0.75s var(--ease);
 }
 
-/* On a dark ground the certified figure reads better in plain white. */
-.section-dark.is-toned .stat-value.is-accent { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .section-soft { background: var(--bg-soft); border-block-color: var(--border-soft); }
   /* No fade, but the inversion still applies so the design is intact. */
@@ -784,7 +779,7 @@ select.control {
 }
 
 @media (max-width: 768px) {
-  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid { grid-template-columns: 1fr; }
   .bento > .card-lg, .bento > .card-sm { grid-column: span 12; }
   .process { grid-template-columns: 1fr; gap: 0; }
   .step { padding-top: 0; padding-left: 26px; padding-bottom: 28px; }
